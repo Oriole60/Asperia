@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Saving;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ForceReceiver : MonoBehaviour
+public class ForceReceiver : MonoBehaviour, IAction, ISaveable
 {
     [SerializeField] private CharacterController controller;
     [SerializeField] private NavMeshAgent agent;
@@ -57,5 +59,22 @@ public class ForceReceiver : MonoBehaviour
     public void Jump(float jumpForce)
     {
         verticalVelocity += jumpForce;
+    }
+
+    public object CaptureState()
+    {
+        return new SerializableVector3(transform.position);
+    }
+
+    public void RestoreState(object state)
+    {
+        SerializableVector3 position = (SerializableVector3)state;
+        transform.position = position.ToVector();
+        GetComponent<ActionScheduler>().CancelCurrentAction();
+    }
+
+    public void Cancel()
+    {
+        Reset();
     }
 }

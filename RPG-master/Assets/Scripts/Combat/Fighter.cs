@@ -45,27 +45,27 @@ namespace RPG.Combat
             currentWeapon.ForceInit();
         }
 
-        private void Update()
-        {
-            timeSinceLastAttack += Time.deltaTime;
+        //private void Update()
+        //{
+        //    timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null) return;
-            if (target.IsDead()) 
-            {
-                target = FindNewTargetInRange();
-                if (target == null) return;
-            }
+        //    if (target == null) return;
+        //    if (target.IsDead()) 
+        //    {
+        //        target = FindNewTargetInRange();
+        //        if (target == null) return;
+        //    }
 
-            if (!GetIsInRange(target.transform))
-            {
-                GetComponent<Mover>().MoveTo(target.transform.position, 1f);
-            }
-            else
-            {
-                GetComponent<Mover>().Cancel();
-                AttackBehaviour();
-            }
-        }
+        //    if (!GetIsInRange(target.transform))
+        //    {
+        //        GetComponent<Mover>().MoveTo(target.transform.position, 1f);
+        //    }
+        //    else
+        //    {
+        //        GetComponent<Mover>().Cancel();
+        //        AttackBehaviour();
+        //    }
+        //}
 
         public void EquipWeapon(WeaponConfig weapon)
         {
@@ -109,16 +109,16 @@ namespace RPG.Combat
             }
         }
 
-        private void AttackBehaviour()
-        {
-            transform.LookAt(target.transform);
-            if (timeSinceLastAttack > timeBetweenAttacks)
-            {
-                // This will trigger the Hit() event.
-                TriggerAttack();
-                timeSinceLastAttack = 0;
-            }
-        }
+        //private void AttackBehaviour()
+        //{
+        //    transform.LookAt(target.transform);
+        //    if (timeSinceLastAttack > timeBetweenAttacks)
+        //    {
+        //        // This will trigger the Hit() event.
+        //        TriggerAttack();
+        //        timeSinceLastAttack = 0;
+        //    }
+        //}
 
         private Health FindNewTargetInRange()
         {
