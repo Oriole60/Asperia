@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Stats;
 using UnityEngine;
 
 public class PlayerAttackingState : PlayerBaseState
@@ -17,7 +18,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.Weapon.SetAttack(attack.Damage, attack.Knockback);
+        stateMachine.Weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), attack.Knockback);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }
 
