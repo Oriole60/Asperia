@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
+using RPG.Stats;
 using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
@@ -10,7 +12,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Targeter Targeter { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
-    [field: SerializeField] public HealthStateMachine Health { get; private set; }
     [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
     [field: SerializeField] public LedgeDetector LedgeDetector { get; private set; }
     [field: SerializeField] public float FreeLookMovementSpeed { get; private set; }
@@ -20,6 +21,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float DodgeLength { get; private set; }
     [field: SerializeField] public float JumpForce { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
+    [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public BaseStats BaseStats { get; private set; }
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     public Transform MainCameraTransform { get; private set; }

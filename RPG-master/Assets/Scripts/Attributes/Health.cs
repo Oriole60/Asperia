@@ -14,6 +14,11 @@ namespace RPG.Attributes
         [SerializeField] TakeDamageEvent takeDamage;
         public UnityEvent onDie;
 
+        public event Action OnTakeDamage;
+        public event Action OnDie;
+
+        private bool isInvulnerable;
+
         [System.Serializable]
         public class TakeDamageEvent : UnityEvent<float>
         {
@@ -52,11 +57,15 @@ namespace RPG.Attributes
 
         public void TakeDamage(GameObject instigator, float damage)
         {
+            if (isInvulnerable) { return; }
+
             healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
-            
-            if(IsDead())
+            OnTakeDamage?.Invoke();
+
+            if (IsDead())
             {
                 onDie.Invoke();
+                OnDie.Invoke();
                 AwardExperience(instigator);
             } 
             else
@@ -133,6 +142,11 @@ namespace RPG.Attributes
             healthPoints.value = (float) state;
             
             UpdateState();
+        }
+
+        public void SetInvulnerable(bool isInvulnerable)
+        {
+            this.isInvulnerable = isInvulnerable;
         }
     }
 }

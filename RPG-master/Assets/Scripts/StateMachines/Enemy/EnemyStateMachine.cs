@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
+using RPG.Stats;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,7 +12,7 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
-    [field: SerializeField] public HealthStateMachine Health { get; private set; }
+    [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public Target Target { get; private set; }
     [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
 
@@ -19,12 +21,13 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
+    [field: SerializeField] public BaseStats BaseStats { get; private set; }
 
-    public HealthStateMachine Player { get; private set; }
+    public Health Player { get; private set; }
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthStateMachine>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
 
         Agent.updatePosition = false;
         Agent.updateRotation = false;

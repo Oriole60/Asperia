@@ -109,16 +109,16 @@ namespace RPG.Combat
             }
         }
 
-        //private void AttackBehaviour()
-        //{
-        //    transform.LookAt(target.transform);
-        //    if (timeSinceLastAttack > timeBetweenAttacks)
-        //    {
-        //        // This will trigger the Hit() event.
-        //        TriggerAttack();
-        //        timeSinceLastAttack = 0;
-        //    }
-        //}
+        private void AttackBehaviour()
+        {
+            transform.LookAt(target.transform);
+            if (timeSinceLastAttack > timeBetweenAttacks)
+            {
+                // This will trigger the Hit() event.
+                TriggerAttack();
+                timeSinceLastAttack = 0;
+            }
+        }
 
         private Health FindNewTargetInRange()
         {

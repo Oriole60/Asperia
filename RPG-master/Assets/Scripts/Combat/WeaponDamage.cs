@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
+using RPG.Stats;
 using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
 
-    private int damage;
+    private float damage;
     private float knockback;
 
     private List<Collider> alreadyCollidedWith = new List<Collider>();
@@ -24,9 +26,15 @@ public class WeaponDamage : MonoBehaviour
 
         alreadyCollidedWith.Add(other);
 
-        if (other.TryGetComponent<HealthStateMachine>(out HealthStateMachine health))
+        if (other.TryGetComponent<BaseStats>(out BaseStats targetBaseStats))
         {
-            health.DealDamage(damage);
+            float defence = targetBaseStats.GetStat(Stat.Defence);
+            damage /= 1 + defence / damage;
+        }
+
+        if (other.TryGetComponent<Health>(out Health health))
+        {
+            health.TakeDamage(myCollider.gameObject,damage);
         }
 
         if(other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
@@ -36,7 +44,7 @@ public class WeaponDamage : MonoBehaviour
         }
     }
 
-    public void SetAttack(int damage, float knockback)
+    public void SetAttack(float damage, float knockback)
     {
         this.damage = damage;
         this.knockback = knockback;
