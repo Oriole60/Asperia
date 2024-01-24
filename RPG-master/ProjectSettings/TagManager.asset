@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Ragdoll
   layers:
   - Default
   - TransparentFX
@@ -12,11 +13,11 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Ragdoll
+  - Climbing
   - Terrain
-  - 
   - PostProcessing
-  - 
-  - 
   - 
   - 
   - 

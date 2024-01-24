@@ -7,18 +7,23 @@ public class QuestListUI : MonoBehaviour
 {
     [SerializeField] QuestItemUI questPrefab;
     QuestList questList;
-    
+    private bool isCompletingPredicate;
+
     // Start is called before the first frame update
     void Start()
     {
         questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
         questList.onUpdate += Redraw;
+        isCompletingPredicate = true;
         Redraw();
     }
 
     private void OnEnable()
     {
-        questList.CompleteObjectivesByPredicates();
+        if (isCompletingPredicate)
+        {
+            questList.CompleteObjectivesByPredicates();
+        }
     }
 
     private void Redraw()
