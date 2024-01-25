@@ -8,15 +8,23 @@ using UnityEngine.AI;
 
 public class ForceReceiver : MonoBehaviour, IAction, ISaveable
 {
-    [SerializeField] private CharacterController controller;
-    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private CharacterController controller; 
     [SerializeField] private float drag = 0.3f;
 
+    private NavMeshAgent agent;
     private Vector3 dampingVelocity;
     private Vector3 impact;
     private float verticalVelocity;
 
     public Vector3 Movement => impact + Vector3.up * verticalVelocity;
+
+    private void Start()
+    {
+        if(gameObject.TryGetComponent<EnemyStateMachine>(out EnemyStateMachine enemyStateMachine))
+        {
+            agent = enemyStateMachine.Agent;
+        }
+    }
 
     private void Update()
     {

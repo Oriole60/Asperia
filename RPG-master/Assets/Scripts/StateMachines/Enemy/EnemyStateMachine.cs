@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Utils;
 using RPG.Attributes;
 using RPG.Stats;
 using UnityEngine;
@@ -24,6 +25,19 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public BaseStats BaseStats { get; private set; }
 
     public Health Player { get; private set; }
+
+    LazyValue<Vector3> guardPosition;
+
+    private void Awake()
+    {
+        guardPosition = new LazyValue<Vector3>(GetGuardPosition);
+        guardPosition.ForceInit();
+        Agent.Warp(guardPosition.value);
+    }
+    private Vector3 GetGuardPosition()
+    {
+        return transform.position;
+    }
 
     private void Start()
     {
@@ -61,5 +75,10 @@ public class EnemyStateMachine : StateMachine
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, PlayerChasingRange);
+    }
+
+    public void Reset()
+    {
+
     }
 }

@@ -47,9 +47,9 @@ namespace RPG.Control
 
         private void ResetEnemies()
         {
-            foreach (AIController enemyControllers in FindObjectsOfType<AIController>())
+            foreach (EnemyStateMachine enemyControllers in FindObjectsOfType<EnemyStateMachine>())
             {
-                Health health = enemyControllers.GetComponent<Health>();
+                Health health = enemyControllers.Health;
                 if (health && !health.IsDead())
                 {
                     enemyControllers.Reset();
@@ -61,14 +61,15 @@ namespace RPG.Control
         private void RespawnPlayer()
         {
             Vector3 postionDelta = respawnLocation.position - transform.position;
-            GetComponent<NavMeshAgent>().Warp(respawnLocation.position);
+            //GetComponent<NavMeshAgent>().Warp(respawnLocation.position);
+            transform.position = respawnLocation.position;
             Health health = GetComponent<Health>();
             health.Heal(health.GetMaxHealthPoints() * healthRegenPercentage / 100);
-            ICinemachineCamera activeVirtualCamera = FindObjectOfType<CinemachineBrain>().ActiveVirtualCamera;
-            if (activeVirtualCamera.Follow == transform)
-            {
-                activeVirtualCamera.OnTargetObjectWarped(transform, postionDelta);
-            }
+            //ICinemachineCamera activeVirtualCamera = FindObjectOfType<CinemachineBrain>().ActiveVirtualCamera;
+            //if (activeVirtualCamera.Follow == transform)
+            //{
+            //    activeVirtualCamera.OnTargetObjectWarped(transform, postionDelta);
+            //}
         }
     }
 }

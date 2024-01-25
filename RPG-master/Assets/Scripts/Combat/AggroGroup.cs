@@ -17,7 +17,7 @@ namespace RPG.Combat
         {
             foreach (Fighter fighter in fighters)
             {
-                CombatTarget target = fighter.GetComponent<CombatTarget>();
+                Target target = fighter.GetComponent<Target>();
                 if (target != null)
                 {
                     target.enabled = shouldActivate;
