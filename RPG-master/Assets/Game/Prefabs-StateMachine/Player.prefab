@@ -9328,7 +9328,7 @@ MonoBehaviour:
   <RotationDamping>k__BackingField: 10
   <DodgeDuration>k__BackingField: 0.6
   <DodgeLength>k__BackingField: 3
-  <JumpForce>k__BackingField: 4
+  <JumpForce>k__BackingField: 7
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
@@ -9378,7 +9378,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8556580953775966359}
-  agent: {fileID: 0}
   drag: 0.1
 --- !u!114 &1456789225909835071
 MonoBehaviour:
@@ -9424,6 +9423,7 @@ MonoBehaviour:
   leftHandTransform: {fileID: 9096883707992355162}
   defaultWeapon: {fileID: 11400000, guid: 2c7272ad808b5a8449f77a375a2c4119, type: 2}
   autoAttackRange: 4
+  animator: {fileID: 3729873165655837447}
 --- !u!114 &601274816583484676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9538,7 +9538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacf20591b9dd6044bbcd90ca8f098db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLevel: 5
+  startingLevel: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: dde64a6dc183d1a4e902664730711f89, type: 2}
   levelUpParticleEffect: {fileID: 3242380174161093250, guid: eb95d2cb3bbb2fe4db962566f8269867,

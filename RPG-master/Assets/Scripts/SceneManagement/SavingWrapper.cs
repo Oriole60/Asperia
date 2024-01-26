@@ -71,20 +71,20 @@ namespace RPG.SceneManagement
             yield return fader.FadeIn(fadeInTime);
         }
 
-        private void Update() {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Save();
-            }
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                Load();
-            }
-            if (Input.GetKeyDown(KeyCode.Delete))
-            {
-                Delete();
-            }
-        }
+        //private void Update() {
+        //    if (Input.GetKeyDown(KeyCode.S))
+        //    {
+        //        Save();
+        //    }
+        //    if (Input.GetKeyDown(KeyCode.L))
+        //    {
+        //        Load();
+        //    }
+        //    if (Input.GetKeyDown(KeyCode.Delete))
+        //    {
+        //        Delete();
+        //    }
+        //}
 
         public void Load()
         {

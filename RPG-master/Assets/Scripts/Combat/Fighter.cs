@@ -18,6 +18,7 @@ namespace RPG.Combat
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
         [SerializeField] float autoAttackRange = 4f;
+        [SerializeField] Animator animator;
 
         Health target;
         Equipment equipment;
@@ -88,7 +89,6 @@ namespace RPG.Combat
 
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
-            Animator animator = GetComponent<Animator>();
             return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
