@@ -9,7 +9,7 @@ public class PlayerDeadState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.Ragdoll.ToggleRagdoll(true);
-        stateMachine.Weapon.gameObject.SetActive(false);
+        stateMachine.Fighter.GetCurrentWeaponConfig().GetWeapon().GetWeaponDamage().gameObject.SetActive(false);
     }
 
     public override void Tick(float deltaTime) { }

@@ -19,6 +19,7 @@ namespace RPG.Combat
         [SerializeField] WeaponConfig defaultWeapon = null;
         [SerializeField] float autoAttackRange = 4f;
         [SerializeField] Animator animator;
+        [SerializeField] WeaponHandler weaponHandler;
 
         Health target;
         Equipment equipment;
@@ -38,6 +39,7 @@ namespace RPG.Combat
 
         private Weapon SetupDefaultWeapon()
         {
+            weaponHandler.SetWeaponLogic(null);
             return AttachWeapon(defaultWeapon);
         }
 
@@ -72,6 +74,8 @@ namespace RPG.Combat
         {
             currentWeaponConfig = weapon;
             currentWeapon.value = AttachWeapon(weapon);
+            Collider myCollider = GetComponent<Collider>();
+            weaponHandler.SetWeaponLogic(weapon.GetWeapon().GetWeaponDamage(myCollider).gameObject);
         }
 
         private void UpdateWeapon()
@@ -96,6 +100,11 @@ namespace RPG.Combat
         {
             return target;
         } 
+
+        public WeaponConfig GetCurrentWeaponConfig()
+        {
+            return currentWeaponConfig;
+        }
 
         public Transform GetHandTransform(bool isRightHand)
         {

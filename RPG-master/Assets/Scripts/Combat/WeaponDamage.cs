@@ -49,4 +49,9 @@ public class WeaponDamage : MonoBehaviour
         this.damage = damage;
         this.knockback = knockback;
     }
+
+    public void SetMyCollider(Collider collider)
+    {
+        myCollider = collider;
+    }
 }

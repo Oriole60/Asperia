@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GameDevTV.Utils;
 using RPG.Attributes;
+using RPG.Combat;
 using RPG.Stats;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,7 +13,6 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
-    [field: SerializeField] public WeaponDamage Weapon { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public Target Target { get; private set; }
     [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
@@ -23,6 +23,8 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
     [field: SerializeField] public BaseStats BaseStats { get; private set; }
+    [field: SerializeField] public Fighter Fighter { get; private set; }
+
 
     public Health Player { get; private set; }
 

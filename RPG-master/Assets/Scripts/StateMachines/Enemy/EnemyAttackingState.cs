@@ -13,7 +13,9 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Enter()
     {
-        stateMachine.Weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), stateMachine.AttackKnockback);
+        WeaponDamage weapon = stateMachine.Fighter.GetCurrentWeaponConfig().GetWeapon().GetWeaponDamage();
+
+        weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), stateMachine.AttackKnockback);
 
         stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
     }

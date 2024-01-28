@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject weaponLogic;
+    [SerializeField] private GameObject defaultWeaponLogic;
+    private GameObject weaponLogic;
 
     public void EnableWeapon()
     {
@@ -14,5 +15,10 @@ public class WeaponHandler : MonoBehaviour
     public void DisableWeapon()
     {
         weaponLogic.SetActive(false);
+    }
+
+    public void SetWeaponLogic(GameObject weaponLogic)
+    {
+        this.weaponLogic = weaponLogic == null ? defaultWeaponLogic : weaponLogic;
     }
 }
