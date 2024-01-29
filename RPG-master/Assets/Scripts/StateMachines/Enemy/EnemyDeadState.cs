@@ -9,7 +9,7 @@ public class EnemyDeadState : EnemyBaseState
     public override void Enter()
     {
         stateMachine.Ragdoll.ToggleRagdoll(true);
-        stateMachine.Fighter.GetCurrentWeaponConfig().GetWeapon().GetWeaponDamage().gameObject.SetActive(false);
+        stateMachine.Fighter.GetWeaponHandler().GetWeaponDamage().gameObject.SetActive(false);
         GameObject.Destroy(stateMachine.Target);
     }
 

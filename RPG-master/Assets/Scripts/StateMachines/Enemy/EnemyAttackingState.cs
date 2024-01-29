@@ -13,7 +13,7 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Enter()
     {
-        WeaponDamage weapon = stateMachine.Fighter.GetCurrentWeaponConfig().GetWeapon().GetWeaponDamage();
+        WeaponDamage weapon = stateMachine.Fighter.GetWeaponHandler().GetWeaponDamage();
 
         weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), stateMachine.AttackKnockback);
 

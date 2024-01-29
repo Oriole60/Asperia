@@ -8,7 +8,7 @@ namespace RPG.Combat
     public class Weapon : MonoBehaviour
     {
         [SerializeField] UnityEvent onHit;
-        [SerializeField] WeaponDamage weaponDamage;
+        [SerializeField] WeaponDamage weaponDamage = null;
 
         public void OnHit()
         {
@@ -17,9 +17,9 @@ namespace RPG.Combat
 
         public WeaponDamage GetWeaponDamage(Collider collider = null)
         {
-            if(collider != null)
+            if (collider != null)
             {
-                weaponDamage.SetMyCollider(collider);
+                weaponDamage?.SetMyCollider(collider);
             }
             return weaponDamage;
         }

@@ -630,12 +630,12 @@ PrefabInstance:
         type: 3}
       propertyPath: leftHandTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6755361489544628950}
     - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: rightHandTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2176950998866600157}
     - target: {fileID: 5930435688121824172, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -916,6 +916,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97794e8f32d9d574c8ed85db378e8c47, type: 3}
+--- !u!4 &2176950998866600157 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9680847256161051, guid: 97794e8f32d9d574c8ed85db378e8c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 2167482440068901830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &3636405092889307811 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3198517679193489765, guid: 97794e8f32d9d574c8ed85db378e8c47,
@@ -952,6 +958,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f681b2338b2fccc428a8e51d8f2adc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6755361489544628950 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4876180893885882640, guid: 97794e8f32d9d574c8ed85db378e8c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 2167482440068901830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &7452680148842390860 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8753111839781359242, guid: 97794e8f32d9d574c8ed85db378e8c47,

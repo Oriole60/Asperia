@@ -20,6 +20,8 @@ namespace RPG.Combat
         [SerializeField] float autoAttackRange = 4f;
         [SerializeField] Animator animator;
         [SerializeField] WeaponHandler weaponHandler;
+        [SerializeField] Collider myCollider;
+
 
         Health target;
         Equipment equipment;
@@ -39,7 +41,6 @@ namespace RPG.Combat
 
         private Weapon SetupDefaultWeapon()
         {
-            weaponHandler.SetWeaponLogic(null);
             return AttachWeapon(defaultWeapon);
         }
 
@@ -74,8 +75,7 @@ namespace RPG.Combat
         {
             currentWeaponConfig = weapon;
             currentWeapon.value = AttachWeapon(weapon);
-            Collider myCollider = GetComponent<Collider>();
-            weaponHandler.SetWeaponLogic(weapon.GetWeapon().GetWeaponDamage(myCollider).gameObject);
+
         }
 
         private void UpdateWeapon()
@@ -93,17 +93,20 @@ namespace RPG.Combat
 
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
-            return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            Weapon spawningWeapon = weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            weaponHandler.SetWeaponLogic(spawningWeapon.GetWeaponDamage(myCollider));
+            return spawningWeapon;
         }
+
 
         public Health GetTarget()
         {
             return target;
         } 
 
-        public WeaponConfig GetCurrentWeaponConfig()
+        public WeaponHandler GetWeaponHandler()
         {
-            return currentWeaponConfig;
+            return weaponHandler;
         }
 
         public Transform GetHandTransform(bool isRightHand)

@@ -7,7 +7,11 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sword Animator Override
-  m_Controller: {fileID: 9100000, guid: 901730e1bb55f7c4d9daa34f4194c1d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: bc94158f10bd2884688ee51987f79fee, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 1315bcd7509173f44bc6655b2673dd4d, type: 3}
-    m_OverrideClip: {fileID: 7400000, guid: 58f2909dff975b54c8395d479180996e, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 2b76bded9ce73bd4ca564551ec83f24d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f82e07039dba5044998dc9498029df39, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4a1e7df9306ae9146aa986daf09caeae, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e0742f3870030fc479fd5a2586790fca, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c07e721dc03433f43a18699083a12e8c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d8d1337cf26c73845abed25f07b172d4, type: 2}
