@@ -9303,7 +9303,6 @@ GameObject:
   - component: {fileID: 1456789225909835071}
   - component: {fileID: 1354590965895707730}
   - component: {fileID: 4016291883470515565}
-  - component: {fileID: 601274816583484676}
   - component: {fileID: 6690015692868569889}
   - component: {fileID: 1903741972566472080}
   - component: {fileID: 3732141813461094191}
@@ -9321,6 +9320,7 @@ GameObject:
   - component: {fileID: 4035974484472933648}
   - component: {fileID: 1803566692385763191}
   - component: {fileID: 8180107553820726135}
+  - component: {fileID: 5912200222321802014}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -9494,7 +9494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42a978424aa9ad4ca147f05c9d86e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultWeaponLogic: {fileID: 6002072101685079128}
+  defaultWeaponLogic: {fileID: 6290956463684967247}
 --- !u!114 &1354590965895707730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9528,28 +9528,7 @@ MonoBehaviour:
   autoAttackRange: 4
   animator: {fileID: 3729873165655837447}
   weaponHandler: {fileID: 1456789225909835071}
---- !u!114 &601274816583484676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8854589240073242548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af77275bc4688847bc54d446c56e643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorMappings:
-  - type: 0
-    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
-    hotspot: {x: 0, y: 0}
-  - type: 3
-    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
-    hotspot: {x: 0, y: 0}
-  maxNavMeshProjectionDistance: 1
-  raycastRadius: 1
-  numberOfAbilities: 6
+  myCollider: {fileID: 0}
 --- !u!114 &6690015692868569889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9836,6 +9815,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fcc1a41e8645c4c86dc6f435f38aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5912200222321802014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854589240073242548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36c8c38794ea4b45b4daebd0114a888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorMappings: []
+  shoutDistance: 2
+  playerStateMachine: {fileID: 2156336293785385856}
+  <CanInteract>k__BackingField: 0
 --- !u!1 &9128620101938628554
 GameObject:
   m_ObjectHideFlags: 0

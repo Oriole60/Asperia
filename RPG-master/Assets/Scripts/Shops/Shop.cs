@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace RPG.Shops
 {
-    public class Shop : MonoBehaviour, IRaycastable, ISaveable
+    public class Shop : MonoBehaviour, IRaycastable, ISaveable,IInteractable
     {
         [SerializeField] string shopName;
         [Range(0, 100)]
@@ -395,6 +395,33 @@ namespace RPG.Shops
             foreach (var pair in saveObject)
             {
                 stockSold[InventoryItem.GetFromID(pair.Key)] = pair.Value;
+            }
+        }
+
+        InteractionType IInteractable.GetCursorType()
+        {
+            return InteractionType.Shop;
+        }
+
+        public void HandleRaycastInteract(PlayerInteraction callingController)
+        {
+            callingController.GetComponent<Shopper>().SetActiveShop(this);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
+            {
+                playerInteraction.CanInteract = true;
+            }
+
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
+            {
+                playerInteraction.CanInteract = false;
             }
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RPG.Control
 {
     [RequireComponent(typeof(Pickup))]
-    public class ClickablePickup : MonoBehaviour, IRaycastable
+    public class ClickablePickup : MonoBehaviour, IRaycastable,IInteractable
     {
         Pickup pickup;
 
@@ -34,6 +34,40 @@ namespace RPG.Control
                 pickup.PickupItem();
             }
             return true;
+        }
+
+        InteractionType IInteractable.GetCursorType()
+        {
+            if (pickup.CanBePickedUp())
+            {
+                return InteractionType.Pickup;
+            }
+            else
+            {
+                return InteractionType.FullPickup;
+            }
+        }
+
+        public void HandleRaycastInteract(PlayerInteraction callingController)
+        {
+            pickup.PickupItem();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
+            {
+                playerInteraction.CanInteract = true;
+            }
+            
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
+            {
+                playerInteraction.CanInteract = false;
+            }
         }
     }
 }

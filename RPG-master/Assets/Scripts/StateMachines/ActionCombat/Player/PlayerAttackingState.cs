@@ -19,7 +19,6 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Enter()
     {
         WeaponDamage weapon = stateMachine.Fighter.GetWeaponHandler().GetWeaponDamage();
-        Debug.LogError($"weapon is null {weapon is null}");
         weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), attack.Knockback);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }

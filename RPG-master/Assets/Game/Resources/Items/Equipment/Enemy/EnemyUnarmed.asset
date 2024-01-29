@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2591c982fc81e940845bedeabeb30af, type: 3}
-  m_Name: Unarmed 1
+  m_Name: EnemyUnarmed
   m_EditorClassIdentifier: 
   itemID: 8b23fd8a-f21f-49dd-9df4-6f88a0237a54
   displayName: 

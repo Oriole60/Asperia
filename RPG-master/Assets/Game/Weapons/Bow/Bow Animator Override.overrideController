@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Bow Animator Override
   m_Controller: {fileID: 9100000, guid: 972764403e4097349a7a2c240f28ca0c, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e2889d84487bf624a8b9acae8629b0ea, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 973cfb2ef8231b74ea00cbe0fd0e50b5, type: 2}
