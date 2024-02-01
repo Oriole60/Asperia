@@ -405,24 +405,7 @@ namespace RPG.Shops
 
         public void HandleRaycastInteract(PlayerInteraction callingController)
         {
-            callingController.GetComponent<Shopper>().SetActiveShop(this);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
-            {
-                playerInteraction.CanInteract = true;
-            }
-
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
-            {
-                playerInteraction.CanInteract = false;
-            }
+            callingController.PlayerStateMachine.Shopper.SetActiveShop(this);
         }
     }
 }

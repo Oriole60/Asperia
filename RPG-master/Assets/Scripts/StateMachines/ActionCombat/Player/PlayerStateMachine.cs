@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Attributes;
 using RPG.Combat;
+using RPG.Dialogue;
+using RPG.Shops;
 using RPG.Stats;
 using UnityEngine;
 
@@ -25,6 +27,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public BaseStats BaseStats { get; private set; }
 
     [field: SerializeField] public Fighter Fighter { get; private set; }
+    [field: SerializeField] public PlayerConversant PlayerConversant { get; private set; }
+    [field: SerializeField] public Shopper Shopper { get; private set; }
+
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     public Transform MainCameraTransform { get; private set; }

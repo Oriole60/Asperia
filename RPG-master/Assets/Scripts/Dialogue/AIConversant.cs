@@ -52,24 +52,8 @@ namespace RPG.Dialogue
 
             Health health = GetComponent<Health>();
             if (health && health.IsDead()) return;
-            callingController.GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
+            callingController.PlayerStateMachine.PlayerConversant.StartDialogue(this, dialogue);
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
-            {
-                playerInteraction.CanInteract = true;
-            }
-
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
-            {
-                playerInteraction.CanInteract = false;
-            }
-        }
     }
 }

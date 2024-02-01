@@ -14,32 +14,15 @@ public class PlayerInteraction : MonoBehaviour
         public Image texture;
     }
 
-    [SerializeField] InteractMapping[] cursorMappings = null;
+    [field: SerializeField] public PlayerStateMachine PlayerStateMachine { get; private set; }
+    private List<Collider> alreadyCollidedWith = new List<Collider>();
 
-    [SerializeField] float shoutDistance = 2f;
-    [SerializeField] PlayerStateMachine playerStateMachine;
-
-    [field: SerializeField] public bool CanInteract { get; set; } = false;
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!CanInteract) { return; }
-        if(!playerStateMachine.InputReader.IsInteracting) { return; }
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
-        foreach (RaycastHit hit in hits)
-        {
-            IInteractable rayCastInteractive = hit.collider.GetComponent<IInteractable>();
-            if (rayCastInteractive == null) continue;
-
-            rayCastInteractive.HandleRaycastInteract(this);
-        }
+        if (alreadyCollidedWith.Contains(other)) {return; }
+        alreadyCollidedWith.Add(other);
+        IInteractable rayCastInteractive = other.GetComponent<IInteractable>();
+        rayCastInteractive.HandleRaycastInteract(this);
     }
 }
 

@@ -52,22 +52,5 @@ namespace RPG.Control
         {
             pickup.PickupItem();
         }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if(other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
-            {
-                playerInteraction.CanInteract = true;
-            }
-            
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.TryGetComponent<PlayerInteraction>(out PlayerInteraction playerInteraction))
-            {
-                playerInteraction.CanInteract = false;
-            }
-        }
     }
 }
