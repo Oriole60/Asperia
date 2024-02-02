@@ -33,6 +33,7 @@ namespace GameDevTV.Inventories
         /// Broadcasts when the items in the slots are added/removed.
         /// </summary>
         public event Action inventoryUpdated;
+        public event Action<bool> OnPickupItem;
 
         /// <summary>
         /// Convenience for getting the player's inventory.
@@ -97,8 +98,12 @@ namespace GameDevTV.Inventories
         /// <param name="item">The item to add.</param>
         /// <param name="number">The number to add.</param>
         /// <returns>Whether or not the item could be added.</returns>
-        public bool AddToFirstEmptySlot(InventoryItem item, int number)
+        public bool AddToFirstEmptySlot(InventoryItem item, int number,bool isPickupItem = false)
         {
+            if (isPickupItem)
+            {
+                OnPickupItem?.Invoke(false);
+            }
             foreach (var store in GetComponents<IItemStore>())
             {
                 number -= store.AddItems(item, number);

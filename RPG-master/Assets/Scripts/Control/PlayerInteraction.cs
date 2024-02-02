@@ -27,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        if(PlayerStateMachine.IsInteracting) { return; }
         timeCountDown -= Time.deltaTime;
         if(timeCountDown < 0)
         {
@@ -46,13 +47,16 @@ public class PlayerInteraction : MonoBehaviour
         PlayerStateMachine.IsInteracting = true;
         IInteractable rayCastInteractive = other.GetComponent<IInteractable>();
         rayCastInteractive.HandleRaycastInteract(this);
+        Vector3 lookPos = other.transform.position - PlayerStateMachine.transform.position;
+        lookPos.y = 0f;
+        PlayerStateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
     }
 }
 
 //Set the object layer to Interactable for more performance
 public interface IInteractable
 {
-    InteractionType GetCursorType();
+    void SetInteractionType();
     void HandleRaycastInteract(PlayerInteraction callingController);
 }
 

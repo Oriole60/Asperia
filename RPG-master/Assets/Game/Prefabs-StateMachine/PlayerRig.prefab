@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.7418709, z: -5.6120367}
+  m_FollowOffset: {x: 0, y: 1.746951, z: -5.60919}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -433,7 +433,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -119.274506
+    Value: -119.282974
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -539,8 +539,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5880632167227677422}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.027573163, y: 0.00000028312206, z: -0.000000052154064, w: -0.99961984}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.108192444, y: -4.1130123, z: -84.677574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.7418709, z: -5.6120367}
+  m_FollowOffset: {x: 0, y: 1.746951, z: -5.60919}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -672,7 +672,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -119.274506
+    Value: -119.282974
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.7418709, z: -5.6120367}
+  m_FollowOffset: {x: 0, y: 1.746951, z: -5.60919}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -799,7 +799,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -119.274506
+    Value: -119.282974
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -874,8 +874,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5880632168065891990}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039528992, y: 0.9578239, z: -0.16159134, w: 0.23430575}
-  m_LocalPosition: {x: -7.9682846, y: 3.1668777, z: -3.0941553}
+  m_LocalRotation: {x: 0.041618675, y: 0.9562154, z: -0.16929278, w: 0.23507449}
+  m_LocalPosition: {x: -7.967703, y: 3.171957, z: -3.097062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -924,7 +924,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.77022505
+    Value: 0.7713838
     m_SpeedMode: 0
     m_MaxSpeed: 1
     m_AccelTime: 0.2
@@ -948,7 +948,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -119.274506
+    Value: -119.282974
     m_SpeedMode: 0
     m_MaxSpeed: 150
     m_AccelTime: 0.1
@@ -1060,8 +1060,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5880632168214230831}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.008756182, y: -0.0000003129244, z: 0.00000007078052, w: 0.9999617}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.0011414997, y: 0.0010069013, z: -0.00036938116, w: 0.9999988}
+  m_LocalPosition: {x: -0.000001689941, y: 0.00000030362253, z: 0.0000008305973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1139,8 +1139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5880632168302141705}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.009434073, y: -0.00000028312206, z: 0.000000059604645, w: 0.99995553}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.01704811, y: 0.0010134876, z: -0.00035101548, w: 0.99985415}
+  m_LocalPosition: {x: -0.000001689941, y: 0.00000030362253, z: 0.0000008305973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1371,6 +1371,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.0113102
       objectReference: {fileID: 0}
+    - target: {fileID: 2156336293785385856, guid: b401400fa75711948b9feb828a7510ac,
+        type: 3}
+      propertyPath: cinemachineInputProvider
+      value: 
+      objectReference: {fileID: 5880632168065891989}
     - target: {fileID: 2156336293785385856, guid: b401400fa75711948b9feb828a7510ac,
         type: 3}
       propertyPath: <BaseStats>k__BackingField

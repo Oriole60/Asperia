@@ -15,6 +15,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action DodgeEvent;
     public event Action TargetEvent;
     public event Action InteractiveEvent;
+    public event Action OpenMenuEvent;
 
     private Controls controls;
 
@@ -91,5 +92,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed) { return; }
 
         InteractiveEvent?.Invoke();
+    }
+
+    public void OnMenu(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        OpenMenuEvent?.Invoke();
     }
 }

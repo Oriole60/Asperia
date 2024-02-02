@@ -10,6 +10,7 @@ namespace RPG.Shops
         Shop activeShop = null;
 
         public event Action activeShopChange;
+        public event Action<bool> OnIsShopping;
 
         public void SetActiveShop(Shop shop)
         {
@@ -21,6 +22,11 @@ namespace RPG.Shops
             if (activeShop != null)
             {
                 activeShop.SetShopper(this);
+                OnIsShopping?.Invoke(true);
+            }
+            else
+            {
+                OnIsShopping?.Invoke(false);
             }
             if (activeShopChange != null)
             {

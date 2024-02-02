@@ -36,21 +36,14 @@ namespace RPG.Control
             return true;
         }
 
-        InteractionType IInteractable.GetCursorType()
-        {
-            if (pickup.CanBePickedUp())
-            {
-                return InteractionType.Pickup;
-            }
-            else
-            {
-                return InteractionType.FullPickup;
-            }
-        }
-
         public void HandleRaycastInteract(PlayerInteraction callingController)
         {
             pickup.PickupItem();
+        }
+
+        public void SetInteractionType()
+        {
+            
         }
     }
 }

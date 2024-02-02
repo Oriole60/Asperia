@@ -38,6 +38,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         if (stateMachine.IsInteracting)
         {
+            stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
             return;
         }
 
@@ -78,6 +79,10 @@ public class PlayerFreeLookState : PlayerBaseState
 
     private void OnJump()
     {
+        if (stateMachine.IsInteracting)
+        {
+            return;
+        }
         stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
     }
 

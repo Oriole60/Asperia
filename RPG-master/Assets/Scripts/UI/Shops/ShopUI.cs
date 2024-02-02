@@ -16,6 +16,7 @@ namespace RPG.UI.Shops
         [SerializeField] TextMeshProUGUI totalField;
         [SerializeField] Button confirmButton;
         [SerializeField] Button switchButton;
+        [SerializeField] Button closeButton;
 
         Shopper shopper = null;
         Shop currentShop = null;

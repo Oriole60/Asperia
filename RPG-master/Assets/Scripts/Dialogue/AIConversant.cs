@@ -38,9 +38,9 @@ namespace RPG.Dialogue
             return conversantName;
         }
 
-        InteractionType IInteractable.GetCursorType()
+        public void SetInteractionType()
         {
-            return InteractionType.Dialogue;
+
         }
 
         public void HandleRaycastInteract(PlayerInteraction callingController)

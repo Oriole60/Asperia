@@ -398,9 +398,9 @@ namespace RPG.Shops
             }
         }
 
-        InteractionType IInteractable.GetCursorType()
+        public void SetInteractionType()
         {
-            return InteractionType.Shop;
+
         }
 
         public void HandleRaycastInteract(PlayerInteraction callingController)

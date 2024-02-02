@@ -8400,7 +8400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8091600728414058082
 Transform:
   m_ObjectHideFlags: 0
@@ -8449,7 +8449,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.91
+  m_Radius: 3.02
   m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!54 &7669671352438926663
 Rigidbody:
@@ -9456,7 +9456,9 @@ MonoBehaviour:
   <Fighter>k__BackingField: {fileID: 4016291883470515565}
   <PlayerConversant>k__BackingField: {fileID: 4035974484472933648}
   <Shopper>k__BackingField: {fileID: 8180107553820726135}
+  <Inventory>k__BackingField: {fileID: 3503402106923796873}
   <PlayerInteraction>k__BackingField: {fileID: 8372082508964508005}
+  cinemachineInputProvider: {fileID: 0}
 --- !u!114 &5817561726674404110
 MonoBehaviour:
   m_ObjectHideFlags: 0

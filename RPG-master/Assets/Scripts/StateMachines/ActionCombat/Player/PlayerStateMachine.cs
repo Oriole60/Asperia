@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using GameDevTV.Inventories;
 using RPG.Attributes;
 using RPG.Combat;
 using RPG.Dialogue;
@@ -29,8 +31,11 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Fighter Fighter { get; private set; }
     [field: SerializeField] public PlayerConversant PlayerConversant { get; private set; }
     [field: SerializeField] public Shopper Shopper { get; private set; }
+    [field: SerializeField] public Inventory Inventory { get; private set; }
+
     [field: SerializeField] public PlayerInteraction PlayerInteraction { get; private set; }
 
+    [SerializeField] private CinemachineInputProvider cinemachineInputProvider;
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     public Transform MainCameraTransform { get; private set; }
@@ -39,8 +44,8 @@ public class PlayerStateMachine : StateMachine
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         MainCameraTransform = Camera.main.transform;
 
@@ -52,6 +57,8 @@ public class PlayerStateMachine : StateMachine
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnDie += HandleDie;
         PlayerConversant.onConversationUpdated += OnInteracting;
+        Shopper.OnIsShopping += OnInteracting;
+        Inventory.OnPickupItem += OnInteracting;
     }
 
     private void OnDisable()
@@ -59,6 +66,8 @@ public class PlayerStateMachine : StateMachine
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnDie -= HandleDie;
         PlayerConversant.onConversationUpdated -= OnInteracting;
+        Shopper.OnIsShopping -= OnInteracting;
+        Inventory.OnPickupItem -= OnInteracting;
     }
 
     private void HandleTakeDamage()
@@ -76,5 +85,7 @@ public class PlayerStateMachine : StateMachine
         Cursor.lockState = isInteracting? CursorLockMode.None: CursorLockMode.Locked;
         Cursor.visible = isInteracting;
         IsInteracting = isInteracting;
+        cinemachineInputProvider.enabled = !isInteracting;
     }
+
 }
