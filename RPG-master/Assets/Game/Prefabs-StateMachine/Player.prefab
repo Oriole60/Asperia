@@ -8429,6 +8429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerStateMachine>k__BackingField: {fileID: 2156336293785385856}
+  timeTillDisable: 1
 --- !u!135 &6983578277620352872
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9453,8 +9454,9 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 1903741972566472080}
   <BaseStats>k__BackingField: {fileID: 7172117471141231811}
   <Fighter>k__BackingField: {fileID: 4016291883470515565}
-  <PlayerConversant>k__BackingField: {fileID: 0}
-  <Shopper>k__BackingField: {fileID: 0}
+  <PlayerConversant>k__BackingField: {fileID: 4035974484472933648}
+  <Shopper>k__BackingField: {fileID: 8180107553820726135}
+  <PlayerInteraction>k__BackingField: {fileID: 8372082508964508005}
 --- !u!114 &5817561726674404110
 MonoBehaviour:
   m_ObjectHideFlags: 0

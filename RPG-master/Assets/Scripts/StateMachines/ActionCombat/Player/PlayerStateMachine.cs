@@ -29,10 +29,13 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Fighter Fighter { get; private set; }
     [field: SerializeField] public PlayerConversant PlayerConversant { get; private set; }
     [field: SerializeField] public Shopper Shopper { get; private set; }
+    [field: SerializeField] public PlayerInteraction PlayerInteraction { get; private set; }
 
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     public Transform MainCameraTransform { get; private set; }
+
+    public bool IsInteracting { get; set; } = false;
 
     private void Start()
     {
@@ -48,12 +51,14 @@ public class PlayerStateMachine : StateMachine
     {
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnDie += HandleDie;
+        PlayerConversant.onConversationUpdated += OnInteracting;
     }
 
     private void OnDisable()
     {
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnDie -= HandleDie;
+        PlayerConversant.onConversationUpdated -= OnInteracting;
     }
 
     private void HandleTakeDamage()
@@ -64,5 +69,12 @@ public class PlayerStateMachine : StateMachine
     private void HandleDie()
     {
         SwitchState(new PlayerDeadState(this));
+    }
+
+    private void OnInteracting(bool isInteracting)
+    {
+        Cursor.lockState = isInteracting? CursorLockMode.None: CursorLockMode.Locked;
+        Cursor.visible = isInteracting;
+        IsInteracting = isInteracting;
     }
 }

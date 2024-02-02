@@ -9,14 +9,12 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public bool IsAttacking { get; private set; }
     public bool IsBlocking { get; private set; }
 
-    public bool IsInteracting { get; private set; }
-
-
     public Vector2 MovementValue { get; private set; }
 
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
+    public event Action InteractiveEvent;
 
     private Controls controls;
 
@@ -90,13 +88,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            IsInteracting = true;
-        }
-        else
-        {
-            IsInteracting = false;
-        }    
+        if (!context.performed) { return; }
+
+        InteractiveEvent?.Invoke();
     }
 }

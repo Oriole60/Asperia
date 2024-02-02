@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerFreeLookState : PlayerBaseState
 {
     private bool shouldFade;
-
     private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
     private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
 
@@ -22,7 +21,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.JumpEvent += OnJump;
-
+        stateMachine.InputReader.InteractiveEvent += OnInteracting;
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
 
         if (shouldFade)
@@ -37,7 +36,12 @@ public class PlayerFreeLookState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (stateMachine.InputReader.IsAttacking)
+        if (stateMachine.IsInteracting)
+        {
+            return;
+        }
+
+        if (stateMachine.InputReader.IsAttacking )
         {
             stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
             return;
@@ -62,6 +66,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.JumpEvent -= OnJump;
+        stateMachine.InputReader.InteractiveEvent -= OnInteracting;
     }
 
     private void OnTarget()
@@ -97,5 +102,10 @@ public class PlayerFreeLookState : PlayerBaseState
             stateMachine.transform.rotation,
             Quaternion.LookRotation(movement),
             deltaTime * stateMachine.RotationDamping);
+    }
+
+    private void OnInteracting()
+    {
+        stateMachine.PlayerInteraction.gameObject.SetActive(true);
     }
 }

@@ -26,10 +26,10 @@ namespace RPG.UI
             nextButton.onClick.AddListener(() => playerConversant.Next());
             quitButton.onClick.AddListener(() => playerConversant.Quit());
 
-            UpdateUI();
+            UpdateUI(true);
         }
 
-        void UpdateUI()
+        void UpdateUI(bool isInteracting)
         {
             gameObject.SetActive(playerConversant.IsActive());
             if (!playerConversant.IsActive())
