@@ -16,7 +16,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
-    public event Action InteractiveEvent;
     public event Action OpenMenuEvent;
 
     private Controls controls;
@@ -94,14 +93,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (context.performed)
         {
             IsInteract = true;
-            InteractiveEvent?.Invoke();
-            Debug.Log("is interact press");
-
         }
-        else
+        else if (context.canceled)
         {
             IsInteract = false;
-            Debug.Log("is interact unpress");
         }
     }
 

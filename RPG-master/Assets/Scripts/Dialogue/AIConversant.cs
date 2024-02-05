@@ -55,6 +55,7 @@ namespace RPG.Dialogue
             Health health = GetComponent<Health>();
             if (health && health.IsDead()) return;
             callingController.PlayerStateMachine.PlayerConversant.StartDialogue(this, dialogue);
+
         }
 
     }

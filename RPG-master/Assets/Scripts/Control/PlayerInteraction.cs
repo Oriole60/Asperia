@@ -15,7 +15,10 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     [field: SerializeField] public PlayerStateMachine PlayerStateMachine { get; private set; }
+
     private List<Collider> alreadyCollidedWith = new List<Collider>();
+
+    private bool isIntertacting;
 
     private void OnEnable()
     {
@@ -27,9 +30,14 @@ public class PlayerInteraction : MonoBehaviour
         if (alreadyCollidedWith.Contains(other)) {return; }
         if(!other.TryGetComponent<IInteractable>(out IInteractable rayCastInteractive)) { return; }
         alreadyCollidedWith.Add(other);
-        PlayerStateMachine.IsInteracting = true;
         rayCastInteractive.SetInteractionType(true);
-        if (!PlayerStateMachine.InputReader.IsInteract) { return; }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(!PlayerStateMachine.InputReader.IsInteract) { return; }
+        if (!other.TryGetComponent<IInteractable>(out IInteractable rayCastInteractive)) { return; }
+        if(PlayerStateMachine.IsInteracting) { return; }
         rayCastInteractive.HandleRaycastInteract(this);
         Vector3 lookPos = other.transform.position - PlayerStateMachine.transform.position;
         lookPos.y = 0f;

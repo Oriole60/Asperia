@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 namespace RPG.UI
 {
+    //Always setactive to true when play the game
     public class DialogueUI : MonoBehaviour
     {
         PlayerConversant playerConversant;
@@ -25,7 +26,6 @@ namespace RPG.UI
             playerConversant.onConversationUpdated += UpdateUI;
             nextButton.onClick.AddListener(() => playerConversant.Next());
             quitButton.onClick.AddListener(() => playerConversant.Quit());
-
             UpdateUI(true);
         }
 

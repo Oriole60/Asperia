@@ -21,7 +21,6 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.JumpEvent += OnJump;
-        stateMachine.InputReader.InteractiveEvent += OnInteracting;
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
 
         if (shouldFade)
@@ -67,7 +66,6 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.JumpEvent -= OnJump;
-        stateMachine.InputReader.InteractiveEvent -= OnInteracting;
     }
 
     private void OnTarget()
@@ -109,8 +107,4 @@ public class PlayerFreeLookState : PlayerBaseState
             deltaTime * stateMachine.RotationDamping);
     }
 
-    private void OnInteracting()
-    {
-        stateMachine.PlayerInteraction.gameObject.SetActive(true);
-    }
 }

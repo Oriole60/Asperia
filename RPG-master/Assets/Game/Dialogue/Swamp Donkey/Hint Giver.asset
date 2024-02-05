@@ -18,8 +18,8 @@ MonoBehaviour:
   - c1c98e33-6366-4c89-8496-1e1029714fdb
   rect:
     serializedVersion: 2
-    x: 538
-    y: 270
+    x: 536
+    y: 284
     width: 200
     height: 100
   onEnterAction: 
@@ -43,8 +43,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 786
-    y: 168
+    x: 824
+    y: 246
     width: 200
     height: 100
   onEnterAction: 
@@ -211,8 +211,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 1038
-    y: -21
+    x: 1032
+    y: -33
     width: 200
     height: 100
   onEnterAction: 
@@ -272,8 +272,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 788
-    y: 270
+    x: 806
+    y: 90
     width: 200
     height: 100
   onEnterAction: 
@@ -298,8 +298,8 @@ MonoBehaviour:
   - 6f66384f-ca17-4b3e-a3a8-4a8f697e58e1
   rect:
     serializedVersion: 2
-    x: 539
-    y: 178
+    x: 537
+    y: 172
     width: 200
     height: 100
   onEnterAction: 
@@ -320,7 +320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Okay, thanks.
-  children: []
+  children:
+  - c1c98e33-6366-4c89-8496-1e1029714fdb
   rect:
     serializedVersion: 2
     x: 539

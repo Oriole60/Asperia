@@ -33,14 +33,12 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Shopper Shopper { get; private set; }
     [field: SerializeField] public Inventory Inventory { get; private set; }
 
-    [field: SerializeField] public PlayerInteraction PlayerInteraction { get; private set; }
-
     [SerializeField] private CinemachineInputProvider cinemachineInputProvider;
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     public Transform MainCameraTransform { get; private set; }
-
     public bool IsInteracting { get; set; } = false;
+
 
     private void Start()
     {
