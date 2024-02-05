@@ -17,11 +17,14 @@ namespace RPG.Shops
         [SerializeField] float sellingPercentage = 80f;
         [SerializeField] float maximumBarterDiscount = 80;
 
+        [SerializeField] Animator animator;
+        private const string IS_ACTIVE_ANIM = "isActive";
+
         // Stock Config
-            // Item: 
-                // InventoryItem
-                // Initial Stock
-                // buyingDiscount
+        // Item: 
+        // InventoryItem
+        // Initial Stock
+        // buyingDiscount
         [SerializeField]
         StockItemConfig[] stockConfig;
 
@@ -398,9 +401,9 @@ namespace RPG.Shops
             }
         }
 
-        public void SetInteractionType()
+        public void SetInteractionType(bool isActive)
         {
-
+            animator.SetBool(IS_ACTIVE_ANIM, isActive);
         }
 
         public void HandleRaycastInteract(PlayerInteraction callingController)

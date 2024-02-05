@@ -8,6 +8,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     public bool IsAttacking { get; private set; }
     public bool IsBlocking { get; private set; }
+    public bool IsInteract { get; private set; }
+
 
     public Vector2 MovementValue { get; private set; }
 
@@ -89,9 +91,18 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!context.performed) { return; }
+        if (context.performed)
+        {
+            IsInteract = true;
+            InteractiveEvent?.Invoke();
+            Debug.Log("is interact press");
 
-        InteractiveEvent?.Invoke();
+        }
+        else
+        {
+            IsInteract = false;
+            Debug.Log("is interact unpress");
+        }
     }
 
     public void OnMenu(InputAction.CallbackContext context)

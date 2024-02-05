@@ -8,7 +8,10 @@ namespace RPG.Control
     [RequireComponent(typeof(Pickup))]
     public class ClickablePickup : MonoBehaviour, IRaycastable,IInteractable
     {
+        [SerializeField] 
         Pickup pickup;
+        [SerializeField] Animator animator;
+        private const string IS_ACTIVE_ANIM = "isActive";
 
         private void Awake()
         {
@@ -41,9 +44,9 @@ namespace RPG.Control
             pickup.PickupItem();
         }
 
-        public void SetInteractionType()
+        public void SetInteractionType(bool isActive)
         {
-            
+            animator.SetBool(IS_ACTIVE_ANIM, isActive);
         }
     }
 }

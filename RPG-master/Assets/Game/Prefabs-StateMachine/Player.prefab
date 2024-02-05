@@ -8429,7 +8429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerStateMachine>k__BackingField: {fileID: 2156336293785385856}
-  timeTillDisable: 1
+  timeTillDisable: 2
 --- !u!135 &6983578277620352872
 SphereCollider:
   m_ObjectHideFlags: 0

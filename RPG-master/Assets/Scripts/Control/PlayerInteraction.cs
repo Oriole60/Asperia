@@ -15,48 +15,42 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     [field: SerializeField] public PlayerStateMachine PlayerStateMachine { get; private set; }
-    [SerializeField] float timeTillDisable = 1f;
     private List<Collider> alreadyCollidedWith = new List<Collider>();
-    private float timeCountDown;
 
     private void OnEnable()
     {
-        timeCountDown = timeTillDisable;
         alreadyCollidedWith.Clear();
-    }
-
-    private void Update()
-    {
-        if(PlayerStateMachine.IsInteracting) { return; }
-        timeCountDown -= Time.deltaTime;
-        if(timeCountDown < 0)
-        {
-            timeCountDown = timeTillDisable;
-            this.gameObject.SetActive(false);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == null)
-        {
-            return;
-        }
         if (alreadyCollidedWith.Contains(other)) {return; }
+        if(!other.TryGetComponent<IInteractable>(out IInteractable rayCastInteractive)) { return; }
         alreadyCollidedWith.Add(other);
         PlayerStateMachine.IsInteracting = true;
-        IInteractable rayCastInteractive = other.GetComponent<IInteractable>();
+        rayCastInteractive.SetInteractionType(true);
+        if (!PlayerStateMachine.InputReader.IsInteract) { return; }
         rayCastInteractive.HandleRaycastInteract(this);
         Vector3 lookPos = other.transform.position - PlayerStateMachine.transform.position;
         lookPos.y = 0f;
         PlayerStateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.TryGetComponent<IInteractable>(out IInteractable rayCastInteractive)) { return; }
+        rayCastInteractive.SetInteractionType(false);
+        if (alreadyCollidedWith.Contains(other))
+        {
+            alreadyCollidedWith.Remove(other);
+        }
     }
 }
 
 //Set the object layer to Interactable for more performance
 public interface IInteractable
 {
-    void SetInteractionType();
+    void SetInteractionType(bool isActive);
     void HandleRaycastInteract(PlayerInteraction callingController);
 }
 

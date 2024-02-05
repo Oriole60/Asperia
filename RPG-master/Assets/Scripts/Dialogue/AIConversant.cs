@@ -11,6 +11,8 @@ namespace RPG.Dialogue
         [SerializeField] Dialogue dialogue = null;
         [SerializeField] string conversantName;
         [SerializeField] Health health;
+        [SerializeField] Animator animator;
+        private const string IS_ACTIVE_ANIM = "isActive";
 
         public CursorType GetCursorType()
         {
@@ -38,9 +40,9 @@ namespace RPG.Dialogue
             return conversantName;
         }
 
-        public void SetInteractionType()
+        public void SetInteractionType(bool isActive)
         {
-
+            animator.SetBool(IS_ACTIVE_ANIM, isActive);
         }
 
         public void HandleRaycastInteract(PlayerInteraction callingController)
