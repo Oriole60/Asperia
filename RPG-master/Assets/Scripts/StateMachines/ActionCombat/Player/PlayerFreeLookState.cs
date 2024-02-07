@@ -21,6 +21,11 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.InputReader.JumpEvent += OnJump;
+        stateMachine.PlayerConversant.onConversationUpdated += OnInteracting;
+        stateMachine.Shopper.OnIsShopping += OnInteracting;
+        stateMachine.Inventory.OnPickupItem += OnInteracting;
+        stateMachine.InputReader.OpenMenuEvent += OnInteracting;
+
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
 
         if (shouldFade)
@@ -66,6 +71,10 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.JumpEvent -= OnJump;
+        stateMachine.PlayerConversant.onConversationUpdated -= OnInteracting;
+        stateMachine.Shopper.OnIsShopping -= OnInteracting;
+        stateMachine.Inventory.OnPickupItem -= OnInteracting;
+        stateMachine.InputReader.OpenMenuEvent -= OnInteracting;
     }
 
     private void OnTarget()
@@ -105,6 +114,14 @@ public class PlayerFreeLookState : PlayerBaseState
             stateMachine.transform.rotation,
             Quaternion.LookRotation(movement),
             deltaTime * stateMachine.RotationDamping);
+    }
+
+    private void OnInteracting(bool isInteracting)
+    {
+        Cursor.lockState = isInteracting ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isInteracting;
+        stateMachine.IsInteracting = isInteracting;
+        stateMachine.CinemachineInputProvider.enabled = !isInteracting;
     }
 
 }

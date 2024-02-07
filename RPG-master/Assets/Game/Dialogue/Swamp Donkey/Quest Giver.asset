@@ -64,6 +64,11 @@ MonoBehaviour:
   condition:
     and:
     - or:
+      - predicate: 1
+        parameters:
+        - Swamp Donkey
+        negate: 1
+    - or:
       - predicate: 3
         parameters:
         - Swamp Donkey

@@ -16,9 +16,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
-    public event Action OpenMenuEvent;
+    public event Action<bool> OpenMenuEvent;
 
     private Controls controls;
+
+    private bool isUsingMenu = false;
 
     private void Start()
     {
@@ -60,7 +62,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnTarget(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-
+        Debug.Log("set target");
         TargetEvent?.Invoke();
     }
 
@@ -103,6 +105,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnMenu(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        OpenMenuEvent?.Invoke();
+        isUsingMenu = !isUsingMenu;
+        OpenMenuEvent?.Invoke(isUsingMenu);
     }
 }

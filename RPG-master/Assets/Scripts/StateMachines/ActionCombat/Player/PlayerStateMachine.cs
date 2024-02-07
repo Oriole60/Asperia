@@ -33,7 +33,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Shopper Shopper { get; private set; }
     [field: SerializeField] public Inventory Inventory { get; private set; }
 
-    [SerializeField] private CinemachineInputProvider cinemachineInputProvider;
+    [field: SerializeField] public CinemachineInputProvider CinemachineInputProvider { get; private set; }
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;
     public Transform MainCameraTransform { get; private set; }
@@ -54,18 +54,13 @@ public class PlayerStateMachine : StateMachine
     {
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnDie += HandleDie;
-        PlayerConversant.onConversationUpdated += OnInteracting;
-        Shopper.OnIsShopping += OnInteracting;
-        Inventory.OnPickupItem += OnInteracting;
+
     }
 
     private void OnDisable()
     {
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnDie -= HandleDie;
-        PlayerConversant.onConversationUpdated -= OnInteracting;
-        Shopper.OnIsShopping -= OnInteracting;
-        Inventory.OnPickupItem -= OnInteracting;
     }
 
     private void HandleTakeDamage()
@@ -78,12 +73,6 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerDeadState(this));
     }
 
-    private void OnInteracting(bool isInteracting)
-    {
-        Cursor.lockState = isInteracting? CursorLockMode.None: CursorLockMode.Locked;
-        Cursor.visible = isInteracting;
-        IsInteracting = isInteracting;
-        cinemachineInputProvider.enabled = !isInteracting;
-    }
+
 
 }

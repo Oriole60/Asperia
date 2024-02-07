@@ -38,7 +38,12 @@ MonoBehaviour:
     description: Kill it!
     usesCondition: 0
     completionCondition:
-      and: []
+      and:
+      - or:
+        - predicate: 0
+          parameters:
+          - 
+          negate: 0
   rewards:
   - number: 1000
     item: {fileID: 11400000, guid: 8a6e92726c664054d91e2fa36f225b9a, type: 2}

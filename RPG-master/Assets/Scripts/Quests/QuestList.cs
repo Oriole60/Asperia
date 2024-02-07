@@ -127,7 +127,7 @@ namespace RPG.Quests
                 case Predication.HasCompletedObjective:
                     return GetQuestStatus(Quest.GetByName(parameter[0])).IsObjectiveComplete(parameter[1]);
                 case Predication.HasCompletedQuest:
-                    return GetQuestStatus(Quest.GetByName(parameter[0])).IsComplete();
+                    return GetQuestStatus(Quest.GetByName(parameter[0]))?.IsComplete();
             }
             return null;
         }
