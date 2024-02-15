@@ -22,7 +22,6 @@ namespace RPG.Combat
         [SerializeField] WeaponHandler weaponHandler;
         [SerializeField] Collider myCollider;
 
-
         Health target;
         Equipment equipment;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -107,6 +106,11 @@ namespace RPG.Combat
         public WeaponHandler GetWeaponHandler()
         {
             return weaponHandler;
+        }
+
+        public WeaponConfig GetCurrentWeaponConfig()
+        {
+            return currentWeaponConfig;
         }
 
         public Transform GetHandTransform(bool isRightHand)

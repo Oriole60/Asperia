@@ -13,7 +13,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
-        attack = stateMachine.Attacks[attackIndex];
+        attack = stateMachine.Fighter.GetCurrentWeaponConfig().GetAttacksData()[attackIndex];
     }
 
     public override void Enter()

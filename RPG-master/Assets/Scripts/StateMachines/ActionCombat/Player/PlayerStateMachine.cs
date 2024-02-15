@@ -24,7 +24,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float DodgeDuration { get; private set; }
     [field: SerializeField] public float DodgeLength { get; private set; }
     [field: SerializeField] public float JumpForce { get; private set; }
-    [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public BaseStats BaseStats { get; private set; }
 
