@@ -9,25 +9,83 @@ public class EnemyAttackingState : EnemyBaseState
 
     private const float TransitionDuration = 0.1f;
 
-    public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+    private bool alreadyAppliedForce;
+    private Attack attack;
+    private float calculatedNextComboChange = 0f;
+
+    public EnemyAttackingState(EnemyStateMachine stateMachine,int attackIndex) : base(stateMachine) 
+    {
+        attack = stateMachine.Fighter.GetCurrentWeaponConfig().GetAttacksData()[attackIndex];
+    }
 
     public override void Enter()
     {
         WeaponDamage weapon = stateMachine.Fighter.GetWeaponHandler().GetWeaponDamage();
 
-        weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), stateMachine.AttackKnockback);
+        weapon.SetAttack(stateMachine.BaseStats.GetStat(Stat.Damage), attack.Knockback);
 
-        stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
+        //stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+
+        calculatedNextComboChange = Random.value;
+
+        FacePlayer();
     }
 
     public override void Tick(float deltaTime)
     {
-        if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1)
+        Move(deltaTime);
+
+        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+        if (normalizedTime < 1f)
+        {
+            if (normalizedTime >= attack.ForceTime)
+            {
+                TryApplyForce();
+            }
+
+
+        }
+        else if (normalizedTime >= 1)
+        {
+            if (calculatedNextComboChange <= stateMachine.ComboChance)
+            {
+                TryComboAttack(normalizedTime);
+            }
+            else
+            {
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+            }
+        }
+    }
+
+    private void TryApplyForce()
+    {
+        if (alreadyAppliedForce) { return; }
+        Debug.Log("Apply Force on Enemy");
+        stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
+
+        alreadyAppliedForce = true;
+    }
+
+    private void TryComboAttack(float normalizedTime)
+    {
+        if (attack.CombonNextStateIndex == -1) 
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+            return; 
         }
 
-        FacePlayer();
+        if (normalizedTime < attack.ComboAttackTime) { return; }
+
+        stateMachine.SwitchState
+        (
+            new EnemyAttackingState
+            (
+                stateMachine,
+                attack.CombonNextStateIndex
+            )
+        );
     }
 
     public override void Exit() { }

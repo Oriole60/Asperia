@@ -26,7 +26,7 @@ public class EnemyChasingState : EnemyBaseState
         }
         else if (IsInAttackRange())
         {
-            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+            stateMachine.SwitchState(new EnemyAttackingState(stateMachine,0));
             return;
         }
 
@@ -61,6 +61,8 @@ public class EnemyChasingState : EnemyBaseState
 
         float playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
 
-        return playerDistanceSqr <= stateMachine.AttackRange * stateMachine.AttackRange;
+        float attackRange = stateMachine.Fighter.GetCurrentWeaponConfig().GetRange();
+
+        return playerDistanceSqr <= attackRange * attackRange;
     }
 }

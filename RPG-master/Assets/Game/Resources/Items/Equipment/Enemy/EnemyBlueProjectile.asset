@@ -21,12 +21,22 @@ MonoBehaviour:
   price: 0
   category: 2
   allowedEquipLocation: 5
+  equipCondition:
+    and: []
   animatorOverride: {fileID: 22100000, guid: d934b9a3e4d4f4f45bf3f9cc5a3a222d, type: 2}
   equippedPrefab: {fileID: 9173292970485315076, guid: ad020399ab7238a4ca625ce5af50e3d0,
     type: 3}
-  weaponDamage: 0
-  percentageBonus: 40
+  weaponDamage: 10
+  percentageBonus: 0
   weaponRange: 18
   isRightHanded: 0
   projectile: {fileID: 2576744083362888934, guid: 499ef6d15935cba45a408016592b8dbc,
     type: 3}
+  attacksData:
+  - <AnimationName>k__BackingField: Attack
+    <TransitionDuration>k__BackingField: 0.1
+    <CombonNextStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0.7
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 10
+    <Knockback>k__BackingField: 10

@@ -1490,9 +1490,10 @@ MonoBehaviour:
   <Ragdoll>k__BackingField: {fileID: 8909388616169813754}
   <MovementSpeed>k__BackingField: 3
   <PlayerChasingRange>k__BackingField: 10
-  <AttackRange>k__BackingField: 1.5
-  <AttackDamage>k__BackingField: 20
+  <AttackRange>k__BackingField: 1
   <AttackKnockback>k__BackingField: 10
+  <ForceTime>k__BackingField: 0
+  <ComboChance>k__BackingField: 0.5
   <BaseStats>k__BackingField: {fileID: 5132307635276464659}
   <Fighter>k__BackingField: {fileID: 5690833133133257728}
 --- !u!114 &7108565712652606878

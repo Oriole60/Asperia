@@ -16,11 +16,10 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public Target Target { get; private set; }
     [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
-
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float PlayerChasingRange { get; private set; }
-    [field: SerializeField] public float AttackRange { get; private set; }
-    [field: SerializeField] public int AttackKnockback { get; private set; }
+    [field: SerializeField] public float ComboChance { get; private set; }
+
     [field: SerializeField] public BaseStats BaseStats { get; private set; }
     [field: SerializeField] public Fighter Fighter { get; private set; }
 
