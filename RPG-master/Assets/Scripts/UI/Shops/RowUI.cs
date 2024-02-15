@@ -44,5 +44,10 @@ namespace RPG.UI.Shops
         {
             currentShop.AddToTransaction(item.GetInventoryItem(), -1);
         }
+
+        public ShopItem GetShopItem()
+        {
+            return item;
+        }
     }
 }

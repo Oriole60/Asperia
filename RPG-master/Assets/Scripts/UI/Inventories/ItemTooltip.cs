@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using GameDevTV.Inventories;
+using RPG.Combat;
+using GameDevTV.Utils;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -12,6 +14,9 @@ namespace GameDevTV.UI.Inventories
         // CONFIG DATA
         [SerializeField] TextMeshProUGUI titleText = null;
         [SerializeField] TextMeshProUGUI bodyText = null;
+        [SerializeField] Transform extraInfoParent;
+        [SerializeField] BodyText bodyTextPrefab;
+
 
         // PUBLIC
 
@@ -19,6 +24,28 @@ namespace GameDevTV.UI.Inventories
         {
             titleText.text = item.GetDisplayName();
             bodyText.text = item.GetDescription();
+
+            foreach(Transform child in extraInfoParent)
+            {
+                Destroy(child.gameObject);
+            }
+
+            if(item is WeaponConfig)
+            {
+                BodyText title = Instantiate<BodyText>(bodyTextPrefab, extraInfoParent);
+                title.SetText(BodyTextType.Requirement_Title);
+
+
+                Condition condition = (item as WeaponConfig).GetCondition();
+                if(condition == null) { return; }
+                foreach(string textContent in condition.GetDisjunctionsInformation())
+                {
+                    BodyText content = Instantiate<BodyText>(bodyTextPrefab, extraInfoParent);
+                    content.SetText(BodyTextType.Requirement_Content, textContent);
+                }
+            }
         }
     }
+
+
 }

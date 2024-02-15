@@ -7,6 +7,7 @@ namespace GameDevTV.Utils
     [System.Serializable]
     public class Condition
     {
+        private const string STRING_SPACE = " ";
         [SerializeField]
         Disjunction[] and;
 
@@ -20,6 +21,25 @@ namespace GameDevTV.Utils
                 }
             }
             return true;
+        }
+
+        public List<string> GetDisjunctionsInformation()
+        {
+            List<string> allDisjunctionsInfo = new List<string>();
+            foreach(Disjunction disjunction in and)
+            {
+                foreach(Predicate predicate in disjunction.GetAllOrPredicate())
+                {
+                    allDisjunctionsInfo.Add(predicate.GetPredicationText());
+                    string information = string.Empty;
+                    foreach (string content in predicate.GetParameterString())
+                    {
+                        information += content + STRING_SPACE;       
+                    }
+                    allDisjunctionsInfo.Add(information);
+                }
+            }
+            return allDisjunctionsInfo;
         }
 
         [System.Serializable]
@@ -38,6 +58,11 @@ namespace GameDevTV.Utils
                     }
                 }
                 return false;
+            }
+
+            public Predicate[] GetAllOrPredicate()
+            {
+                return or;
             }
         }
 
@@ -64,6 +89,16 @@ namespace GameDevTV.Utils
                     if (result == negate) return false;
                 }
                 return true;
+            }
+
+            public string GetPredicationText()
+            {
+                return predicate.ToString();
+            }
+
+            public string[] GetParameterString()
+            {
+                return parameters;
             }
         }
     }

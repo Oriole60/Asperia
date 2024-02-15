@@ -28,5 +28,10 @@ namespace GameDevTV.Inventories
         {
             return allowedEquipLocation;
         }
+
+        public Condition GetCondition()
+        {
+            return equipCondition;
+        }
     }
 }

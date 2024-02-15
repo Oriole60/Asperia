@@ -300,7 +300,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3165ae3f-6525-4a27-8459-8ec511fd78a6"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse & Keyboard"",
