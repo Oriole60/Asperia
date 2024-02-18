@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using RPG.Attributes;
 using UnityEngine.Events;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
@@ -70,9 +71,17 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other)
         {
             Health health = other.GetComponent<Health>();
-            if (target != null && health != target) return;
+            //if (target != null && health != target) return;
             if (health == null || health.IsDead()) return;
             if (other.gameObject == instigator) return;
+
+            BaseStats targetBaseStats = health.GetComponent<BaseStats>();
+            if (targetBaseStats != null)
+            {
+                float defence = targetBaseStats.GetStat(Stat.Defence);
+                damage /= 1 + defence / damage;
+            }
+
             health.TakeDamage(instigator, damage);
 
             speed = 0;

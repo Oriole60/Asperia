@@ -66,6 +66,7 @@ namespace RPG.Attributes
             {
                 onDie.Invoke();
                 OnDie.Invoke();
+                isInvulnerable = true;
                 AwardExperience(instigator);
             } 
             else
@@ -103,16 +104,15 @@ namespace RPG.Attributes
 
         private void UpdateState()
         {
-            Animator animator = GetComponent<Animator>();
             if (!wasDeadLastFrame && IsDead())
             {
-                animator.SetTrigger("die");
+                //animator.SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
             }
 
             if (wasDeadLastFrame && !IsDead())
             {
-                animator.Rebind();
+                //animator.Rebind();
             }
 
             wasDeadLastFrame = IsDead();

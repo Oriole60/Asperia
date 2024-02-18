@@ -980,10 +980,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 870133199fbd1da43a6b11c5eb053aca,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8909388616169813754}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 870133199fbd1da43a6b11c5eb053aca,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8295830491411712299}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 870133199fbd1da43a6b11c5eb053aca,
         type: 3}
@@ -1002,20 +998,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1844162920036955347}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8909388616169813754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537594127069399426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ce1bba9583dd984cb231791869c506b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 3064083038586076870}
-  controller: {fileID: 3044661309177020953}
 --- !u!114 &8295830491411712299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,6 +1198,11 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: 9c458a67-22dd-45f3-bc9e-94343c5a4131
       objectReference: {fileID: 0}
+    - target: {fileID: 2495515040136399149, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: shouldUseModifiers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3125957438692005694, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
       propertyPath: weapon
@@ -1258,6 +1245,11 @@ PrefabInstance:
       propertyPath: rightHandTransform
       value: 
       objectReference: {fileID: 9680847256161051}
+    - target: {fileID: 3307795589981818629, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3064083038586076870}
     - target: {fileID: 3307795589981818629, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
       propertyPath: healthPoints
@@ -1487,13 +1479,10 @@ MonoBehaviour:
   <Agent>k__BackingField: {fileID: 7320679463253791943}
   <Health>k__BackingField: {fileID: 5224142304942228539}
   <Target>k__BackingField: {fileID: 7108565712652606878}
-  <Ragdoll>k__BackingField: {fileID: 8909388616169813754}
   <MovementSpeed>k__BackingField: 3
   <PlayerChasingRange>k__BackingField: 10
-  <AttackRange>k__BackingField: 1
-  <AttackKnockback>k__BackingField: 10
-  <ForceTime>k__BackingField: 0
   <ComboChance>k__BackingField: 0.5
+  <AttackIdleCooldown>k__BackingField: 1
   <BaseStats>k__BackingField: {fileID: 5132307635276464659}
   <Fighter>k__BackingField: {fileID: 5690833133133257728}
 --- !u!114 &7108565712652606878

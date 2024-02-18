@@ -30,6 +30,8 @@ public class EnemyAttackingState : EnemyBaseState
         calculatedNextComboChange = Random.value;
 
         FacePlayer();
+
+        stateMachine.ResetAttackIdleCooldown();
     }
 
     public override void Tick(float deltaTime)

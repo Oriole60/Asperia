@@ -220,6 +220,11 @@ PrefabInstance:
       propertyPath: <Fighter>k__BackingField
       value: 
       objectReference: {fileID: 5831483526546618310}
+    - target: {fileID: 2010111922037004708, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: <AttackIdleCooldown>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2054523271177807036, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

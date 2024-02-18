@@ -50,5 +50,5 @@ MonoBehaviour:
     <CombonNextStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0.7
     <ForceTime>k__BackingField: 0.35
-    <Force>k__BackingField: 10
+    <Force>k__BackingField: 2
     <Knockback>k__BackingField: 15

@@ -93,7 +93,7 @@ namespace RPG.Combat
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
             Weapon spawningWeapon = weapon.Spawn(rightHandTransform, leftHandTransform, animator);
-            weaponHandler.SetWeaponLogic(spawningWeapon.GetWeaponDamage(myCollider));
+            weaponHandler.SetWeaponLogic(spawningWeapon.GetWeaponDamage(myCollider),weapon.HasProjectile(), LaunchProjectile);
             return spawningWeapon;
         }
 
@@ -122,6 +122,18 @@ namespace RPG.Combat
             else
             {
                 return leftHandTransform;
+            }
+        }
+
+        public void LaunchProjectile()
+        {
+            //if (target == null) { return; }
+
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+
+            if (currentWeaponConfig.HasProjectile())
+            {
+                currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
         }
 
@@ -200,6 +212,7 @@ namespace RPG.Combat
                 target.TakeDamage(gameObject, damage);
             }
         }
+
 
         void Shoot()
         {

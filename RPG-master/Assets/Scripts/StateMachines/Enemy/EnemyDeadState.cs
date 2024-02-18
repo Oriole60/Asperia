@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyDeadState : EnemyBaseState
 {
+    private readonly int ImpactHash = Animator.StringToHash("Dead");
+
+    private const float CrossFadeDuration = 0.1f;
+
     public EnemyDeadState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
-        stateMachine.Ragdoll.ToggleRagdoll(true);
+        stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
         stateMachine.Fighter.GetWeaponHandler().GetWeaponDamage().gameObject.SetActive(false);
         GameObject.Destroy(stateMachine.Target);
     }
