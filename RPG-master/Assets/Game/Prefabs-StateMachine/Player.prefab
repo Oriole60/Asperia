@@ -7119,6 +7119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineTargetGroup: {fileID: 0}
+  fighterTargeter: {fileID: 4016291883470515565}
 --- !u!135 &7219639827147743516
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -148,5 +148,12 @@ namespace RPG.Attributes
         {
             this.isInvulnerable = isInvulnerable;
         }
+
+        public event Action<Health> OnDestroyed;
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke(this);
+        }
     }
 }

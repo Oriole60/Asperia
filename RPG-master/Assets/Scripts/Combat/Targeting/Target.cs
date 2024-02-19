@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Unused
 public class Target : MonoBehaviour
 {
     public event Action<Target> OnDestroyed;

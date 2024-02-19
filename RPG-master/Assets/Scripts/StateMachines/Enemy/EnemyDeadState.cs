@@ -14,7 +14,8 @@ public class EnemyDeadState : EnemyBaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
         stateMachine.Fighter.GetWeaponHandler().GetWeaponDamage().gameObject.SetActive(false);
-        GameObject.Destroy(stateMachine.Target);
+        stateMachine.Fighter.SetTarget(null);
+        GameObject.Destroy(stateMachine.Health);
     }
 
     public override void Tick(float deltaTime) { }

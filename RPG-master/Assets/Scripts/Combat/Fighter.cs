@@ -101,7 +101,12 @@ namespace RPG.Combat
         public Health GetTarget()
         {
             return target;
-        } 
+        }
+
+        public void SetTarget(Health target)
+        {
+            this.target = target;
+        }
 
         public WeaponHandler GetWeaponHandler()
         {
@@ -235,6 +240,7 @@ namespace RPG.Combat
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }
+
 
         public void Attack(GameObject combatTarget)
         {

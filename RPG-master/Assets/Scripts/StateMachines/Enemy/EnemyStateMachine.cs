@@ -14,7 +14,6 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
-    [field: SerializeField] public Target Target { get; private set; }
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float PlayerChasingRange { get; private set; }
     [field: SerializeField] public float ComboChance { get; private set; }
@@ -43,6 +42,8 @@ public class EnemyStateMachine : StateMachine
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+
+        Fighter.SetTarget(Player);
 
         Agent.updatePosition = false;
         Agent.updateRotation = false;

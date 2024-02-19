@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using RPG.Attributes;
+using RPG.Combat;
 using UnityEngine;
 
 public class Targeter : MonoBehaviour
 {
     [SerializeField] private CinemachineTargetGroup cineTargetGroup;
-
+    [SerializeField] private Fighter fighterTargeter;
     private Camera mainCamera;
-    private List<Target> targets = new List<Target>();
+    private List<Health> targets = new List<Health>();
 
-    public Target CurrentTarget { get; private set; }
+    private const string ENEMY_TAG = "Enemy";
+
+    public Health CurrentTarget { get; private set; }
 
     private void Start()
     {
@@ -19,15 +23,15 @@ public class Targeter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.TryGetComponent<Target>(out Target target)) { return; }
-
+        if (!other.TryGetComponent<Health>(out Health target)) { return; }
+        if(other.tag != ENEMY_TAG) { return; }
         targets.Add(target);
         target.OnDestroyed += RemoveTarget;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.TryGetComponent<Target>(out Target target)) { return; }
+        if (!other.TryGetComponent<Health>(out Health target)) { return; }
 
         RemoveTarget(target);
     }
@@ -36,10 +40,10 @@ public class Targeter : MonoBehaviour
     {
         if (targets.Count == 0) { return false; }
 
-        Target closestTarget = null;
+        Health closestTarget = null;
         float closestTargetDistance = Mathf.Infinity;
 
-        foreach (Target target in targets)
+        foreach (Health target in targets)
         {
             Vector2 viewPos = mainCamera.WorldToViewportPoint(target.transform.position);
 
@@ -59,6 +63,7 @@ public class Targeter : MonoBehaviour
         if (closestTarget == null) { return false; }
 
         CurrentTarget = closestTarget;
+        fighterTargeter.SetTarget(CurrentTarget);
         cineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
 
         return true;
@@ -70,14 +75,16 @@ public class Targeter : MonoBehaviour
 
         cineTargetGroup.RemoveMember(CurrentTarget.transform);
         CurrentTarget = null;
+        fighterTargeter.SetTarget(null);
     }
 
-    private void RemoveTarget(Target target)
+    private void RemoveTarget(Health target)
     {
         if (CurrentTarget == target)
         {
             cineTargetGroup.RemoveMember(CurrentTarget.transform);
             CurrentTarget = null;
+            fighterTargeter.SetTarget(null);
         }
 
         target.OnDestroyed -= RemoveTarget;

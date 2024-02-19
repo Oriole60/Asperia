@@ -62,7 +62,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnTarget(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        Debug.Log("set target");
         TargetEvent?.Invoke();
     }
 

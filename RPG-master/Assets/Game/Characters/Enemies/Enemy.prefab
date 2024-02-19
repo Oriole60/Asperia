@@ -1425,10 +1425,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5401972681186859721, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7108565712652606878}
-    - targetCorrespondingSourceObject: {fileID: 5401972681186859721, guid: 750e3c6876a501e42b5827ec7a3d24d1,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8398418052414840154}
     - targetCorrespondingSourceObject: {fileID: 5401972681186859721, guid: 750e3c6876a501e42b5827ec7a3d24d1,
         type: 3}
@@ -1478,25 +1474,12 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 8398418052414840154}
   <Agent>k__BackingField: {fileID: 7320679463253791943}
   <Health>k__BackingField: {fileID: 5224142304942228539}
-  <Target>k__BackingField: {fileID: 7108565712652606878}
   <MovementSpeed>k__BackingField: 3
   <PlayerChasingRange>k__BackingField: 10
   <ComboChance>k__BackingField: 0.5
   <AttackIdleCooldown>k__BackingField: 1
   <BaseStats>k__BackingField: {fileID: 5132307635276464659}
   <Fighter>k__BackingField: {fileID: 5690833133133257728}
---- !u!114 &7108565712652606878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418213045117489655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8085fa4fdeb32e9438f82466a1321213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8398418052414840154
 MonoBehaviour:
   m_ObjectHideFlags: 0

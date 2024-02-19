@@ -60,7 +60,7 @@ namespace RPG.Combat
             {
                 return targetPoint;
             }
-            CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
+            CharacterController targetCapsule = target.GetComponent<CharacterController>();
             if (targetCapsule == null)
             {
                 return target.transform.position;
