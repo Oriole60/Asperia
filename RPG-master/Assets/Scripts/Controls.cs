@@ -107,6 +107,51 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeTarget"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4b208ce5-b2de-4028-b313-06f04f0b3b7e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionSlot1"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b488db3-8305-4a62-bf3f-7c50b3bbcba1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionSlot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb402d1a-5f02-40dd-8ae8-4daf8bbce82a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionSlot3"",
+                    ""type"": ""Button"",
+                    ""id"": ""8cf1d6b5-e83b-4f22-8338-d85088186cc9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionSlot4"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1612f35-69f8-4276-abce-b58056c29cd5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -406,6 +451,72 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9b62706-118f-4421-a059-123eca6e937c"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ChangeTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e31001b-d0cd-430a-a7c8-20015fe96102"",
+                    ""path"": ""<Gamepad>/rightStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ChangeTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e95ddbb-5433-4245-8e59-a325b0c0cea6"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ActionSlot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c2e3ed8-383b-4e87-9eea-abc819e79225"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ActionSlot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""994931e3-7204-48dd-8378-7d04537d3dab"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ActionSlot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e59818c-1caf-45c1-8d5b-4a310291594a"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ActionSlot4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -451,6 +562,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_ChangeTarget = m_Player.FindAction("ChangeTarget", throwIfNotFound: true);
+        m_Player_ActionSlot1 = m_Player.FindAction("ActionSlot1", throwIfNotFound: true);
+        m_Player_ActionSlot2 = m_Player.FindAction("ActionSlot2", throwIfNotFound: true);
+        m_Player_ActionSlot3 = m_Player.FindAction("ActionSlot3", throwIfNotFound: true);
+        m_Player_ActionSlot4 = m_Player.FindAction("ActionSlot4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -521,6 +637,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_ChangeTarget;
+    private readonly InputAction m_Player_ActionSlot1;
+    private readonly InputAction m_Player_ActionSlot2;
+    private readonly InputAction m_Player_ActionSlot3;
+    private readonly InputAction m_Player_ActionSlot4;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -534,6 +655,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        public InputAction @ChangeTarget => m_Wrapper.m_Player_ChangeTarget;
+        public InputAction @ActionSlot1 => m_Wrapper.m_Player_ActionSlot1;
+        public InputAction @ActionSlot2 => m_Wrapper.m_Player_ActionSlot2;
+        public InputAction @ActionSlot3 => m_Wrapper.m_Player_ActionSlot3;
+        public InputAction @ActionSlot4 => m_Wrapper.m_Player_ActionSlot4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,6 +696,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @ChangeTarget.started += instance.OnChangeTarget;
+            @ChangeTarget.performed += instance.OnChangeTarget;
+            @ChangeTarget.canceled += instance.OnChangeTarget;
+            @ActionSlot1.started += instance.OnActionSlot1;
+            @ActionSlot1.performed += instance.OnActionSlot1;
+            @ActionSlot1.canceled += instance.OnActionSlot1;
+            @ActionSlot2.started += instance.OnActionSlot2;
+            @ActionSlot2.performed += instance.OnActionSlot2;
+            @ActionSlot2.canceled += instance.OnActionSlot2;
+            @ActionSlot3.started += instance.OnActionSlot3;
+            @ActionSlot3.performed += instance.OnActionSlot3;
+            @ActionSlot3.canceled += instance.OnActionSlot3;
+            @ActionSlot4.started += instance.OnActionSlot4;
+            @ActionSlot4.performed += instance.OnActionSlot4;
+            @ActionSlot4.canceled += instance.OnActionSlot4;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -601,6 +742,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @ChangeTarget.started -= instance.OnChangeTarget;
+            @ChangeTarget.performed -= instance.OnChangeTarget;
+            @ChangeTarget.canceled -= instance.OnChangeTarget;
+            @ActionSlot1.started -= instance.OnActionSlot1;
+            @ActionSlot1.performed -= instance.OnActionSlot1;
+            @ActionSlot1.canceled -= instance.OnActionSlot1;
+            @ActionSlot2.started -= instance.OnActionSlot2;
+            @ActionSlot2.performed -= instance.OnActionSlot2;
+            @ActionSlot2.canceled -= instance.OnActionSlot2;
+            @ActionSlot3.started -= instance.OnActionSlot3;
+            @ActionSlot3.performed -= instance.OnActionSlot3;
+            @ActionSlot3.canceled -= instance.OnActionSlot3;
+            @ActionSlot4.started -= instance.OnActionSlot4;
+            @ActionSlot4.performed -= instance.OnActionSlot4;
+            @ActionSlot4.canceled -= instance.OnActionSlot4;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -647,5 +803,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnBlock(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnChangeTarget(InputAction.CallbackContext context);
+        void OnActionSlot1(InputAction.CallbackContext context);
+        void OnActionSlot2(InputAction.CallbackContext context);
+        void OnActionSlot3(InputAction.CallbackContext context);
+        void OnActionSlot4(InputAction.CallbackContext context);
     }
 }

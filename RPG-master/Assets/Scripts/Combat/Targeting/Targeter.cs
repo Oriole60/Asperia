@@ -13,8 +13,19 @@ public class Targeter : MonoBehaviour
     private List<Health> targets = new List<Health>();
 
     private const string ENEMY_TAG = "Enemy";
+    private int currentIndex = 0;
 
-    public Health CurrentTarget { get; private set; }
+    public Health CurrentTarget 
+    {
+        get
+        {
+            return fighterTargeter.GetTarget();
+        }
+        private set 
+        {
+            fighterTargeter.SetTarget(value);
+        }
+    }
 
     private void Start()
     {
@@ -63,10 +74,29 @@ public class Targeter : MonoBehaviour
         if (closestTarget == null) { return false; }
 
         CurrentTarget = closestTarget;
-        fighterTargeter.SetTarget(CurrentTarget);
         cineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
 
         return true;
+    }
+
+    //should set to 1 and -1
+    public void ChangeTarget(int nextIndex)
+    {
+        if (targets.Count > 0)
+        {
+            cineTargetGroup.RemoveMember(CurrentTarget.transform);
+            currentIndex += nextIndex;
+            if (currentIndex < 0)
+            {
+                currentIndex = targets.Count - 1;
+            }
+            else if (currentIndex >= targets.Count)
+            {
+                currentIndex = 0;
+            }
+            CurrentTarget = targets[currentIndex];
+            cineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
+        }
     }
 
     public void Cancel()
@@ -75,7 +105,7 @@ public class Targeter : MonoBehaviour
 
         cineTargetGroup.RemoveMember(CurrentTarget.transform);
         CurrentTarget = null;
-        fighterTargeter.SetTarget(null);
+        currentIndex = 0;
     }
 
     private void RemoveTarget(Health target)
@@ -84,7 +114,6 @@ public class Targeter : MonoBehaviour
         {
             cineTargetGroup.RemoveMember(CurrentTarget.transform);
             CurrentTarget = null;
-            fighterTargeter.SetTarget(null);
         }
 
         target.OnDestroyed -= RemoveTarget;

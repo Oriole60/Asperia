@@ -104,6 +104,54 @@ namespace GameDevTV.Inventories
             return false;
         }
 
+        public void UseActionSlot1(GameObject user)
+        {
+            if (dockedItems.ContainsKey(0))
+            {
+                bool wasUsed = dockedItems[0].item.Use(user);
+                if (wasUsed && dockedItems[0].item.isConsumable())
+                {
+                    RemoveItems(0, 1);
+                }
+            }
+        }
+
+        public void UseActionSlot2(GameObject user)
+        {
+            if (dockedItems.ContainsKey(1))
+            {
+                bool wasUsed = dockedItems[1].item.Use(user);
+                if (wasUsed && dockedItems[1].item.isConsumable())
+                {
+                    RemoveItems(1, 1);
+                }
+            }
+        }
+
+        public void UseActionSlot3(GameObject user)
+        {
+            if (dockedItems.ContainsKey(2))
+            {
+                bool wasUsed = dockedItems[2].item.Use(user);
+                if (wasUsed && dockedItems[2].item.isConsumable())
+                {
+                    RemoveItems(2, 1);
+                }
+            }
+        }
+
+        public void UseActionSlot4(GameObject user)
+        {
+            if (dockedItems.ContainsKey(3))
+            {
+                bool wasUsed = dockedItems[3].item.Use(user);
+                if (wasUsed && dockedItems[3].item.isConsumable())
+                {
+                    RemoveItems(3, 1);
+                }
+            }
+        }
+
         /// <summary>
         /// Remove a given number of items from the given slot.
         /// </summary>

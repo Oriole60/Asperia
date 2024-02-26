@@ -90,4 +90,9 @@ public class PlayerAttackingState : PlayerBaseState
 
         alreadyAppliedForce = true;
     }
+
+    private void OnUseSlot()
+    {
+        stateMachine.SwitchState(new PlayerUseSlotState(stateMachine));
+    }
 }

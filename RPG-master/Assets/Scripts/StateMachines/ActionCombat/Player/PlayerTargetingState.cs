@@ -33,12 +33,21 @@ public class PlayerTargetingState : PlayerBaseState
             stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;
         }
+        if (stateMachine.InputReader.ChangeTargetValue > 0)
+        {
+            stateMachine.Targeter.ChangeTarget(1);
+        }
+        else if (stateMachine.InputReader.ChangeTargetValue < 0)
+        {
+            stateMachine.Targeter.ChangeTarget(-1);
+        }
+
         if (stateMachine.Targeter.CurrentTarget == null)
         {
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
             return;
         }
-
+        
         Vector3 movement = CalculateMovement(deltaTime);
 
         Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
@@ -72,6 +81,11 @@ public class PlayerTargetingState : PlayerBaseState
     private void OnJump()
     {
         stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
+    }
+
+    private void OnUseSlot()
+    {
+        stateMachine.SwitchState(new PlayerUseSlotState(stateMachine));
     }
 
     private Vector3 CalculateMovement(float deltaTime)

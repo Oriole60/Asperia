@@ -93,6 +93,11 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
     }
 
+    private void OnUseSlot()
+    {
+        stateMachine.SwitchState(new PlayerUseSlotState(stateMachine));
+    }
+
     private Vector3 CalculateMovement()
     {
         Vector3 forward = stateMachine.MainCameraTransform.forward;

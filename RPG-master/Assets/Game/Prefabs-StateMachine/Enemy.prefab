@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 766110877754285976}
   - component: {fileID: 4397740498574737689}
   - component: {fileID: 6242298568764979631}
-  - component: {fileID: 3667242362505010642}
   - component: {fileID: 3040040992578044392}
   - component: {fileID: 1345161822723388765}
   - component: {fileID: 7031503642767008733}
@@ -195,28 +194,13 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 4397740498574737689}
   <ForceReceiver>k__BackingField: {fileID: 1345161822723388765}
   <Agent>k__BackingField: {fileID: 766110877754285976}
-  <Weapon>k__BackingField: {fileID: 6740153351762715864}
   <Health>k__BackingField: {fileID: 0}
-  <Target>k__BackingField: {fileID: 3667242362505010642}
-  <Ragdoll>k__BackingField: {fileID: 2475550312689860188}
   <MovementSpeed>k__BackingField: 3
   <PlayerChasingRange>k__BackingField: 10
-  <AttackRange>k__BackingField: 1.5
-  <AttackDamage>k__BackingField: 20
-  <AttackKnockback>k__BackingField: 10
+  <ComboChance>k__BackingField: 0
+  <AttackIdleCooldown>k__BackingField: 0
   <BaseStats>k__BackingField: {fileID: 0}
---- !u!114 &3667242362505010642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439742630810592733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8085fa4fdeb32e9438f82466a1321213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  <Fighter>k__BackingField: {fileID: 0}
 --- !u!114 &3040040992578044392
 MonoBehaviour:
   m_ObjectHideFlags: 0

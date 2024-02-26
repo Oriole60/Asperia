@@ -30,7 +30,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerConversant PlayerConversant { get; private set; }
     [field: SerializeField] public Shopper Shopper { get; private set; }
     [field: SerializeField] public Inventory Inventory { get; private set; }
-
+    [field: SerializeField] public ActionStore ActionStore { get; private set; }
     [field: SerializeField] public CinemachineInputProvider CinemachineInputProvider { get; private set; }
 
     public float PreviousDodgeTime { get; private set; } = Mathf.NegativeInfinity;

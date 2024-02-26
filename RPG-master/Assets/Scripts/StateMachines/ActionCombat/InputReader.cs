@@ -6,17 +6,24 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
+    [SerializeField] EventSignal openMenuSignal;
+    [SerializeField] EventSignal UseActionSlot1Signal;
+    [SerializeField] EventSignal UseActionSlot2Signal;
+    [SerializeField] EventSignal UseActionSlot3Signal;
+    [SerializeField] EventSignal UseActionSlot4Signal;
+
     public bool IsAttacking { get; private set; }
     public bool IsBlocking { get; private set; }
     public bool IsInteract { get; private set; }
-
-
+    public bool IsUsingSlot { get; private set; }
     public Vector2 MovementValue { get; private set; }
+    public float ChangeTargetValue { get; private set; }
 
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
     public event Action<bool> OpenMenuEvent;
+
 
     private Controls controls;
 
@@ -106,5 +113,40 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed) { return; }
         isUsingMenu = !isUsingMenu;
         OpenMenuEvent?.Invoke(isUsingMenu);
+        openMenuSignal.Occurred(this.gameObject);
+    }
+
+    public void OnChangeTarget(InputAction.CallbackContext context)
+    {
+        ChangeTargetValue = context.ReadValue<float>();
+        Debug.Log(ChangeTargetValue);
+    }
+
+    public void OnActionSlot1(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        UseActionSlot1Signal?.Occurred(this.gameObject);
+    }
+
+    public void OnActionSlot2(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        UseActionSlot2Signal?.Occurred(this.gameObject);
+    }
+
+    public void OnActionSlot3(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        UseActionSlot3Signal?.Occurred(this.gameObject);
+    }
+
+    public void OnActionSlot4(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        UseActionSlot4Signal?.Occurred(this.gameObject);
     }
 }
