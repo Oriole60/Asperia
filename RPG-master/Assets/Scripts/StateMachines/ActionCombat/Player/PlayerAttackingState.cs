@@ -34,7 +34,7 @@ public class PlayerAttackingState : PlayerBaseState
 
         FaceTarget();
 
-        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+        float normalizedTime = GetNormalizedTime(stateMachine.Animator, GameConstant.ATTACK_TAG_ANIMATIONSTATE);
 
         if (normalizedTime < 1f)
         {
@@ -91,8 +91,4 @@ public class PlayerAttackingState : PlayerBaseState
         alreadyAppliedForce = true;
     }
 
-    private void OnUseSlot()
-    {
-        stateMachine.SwitchState(new PlayerUseSlotState(stateMachine));
-    }
 }

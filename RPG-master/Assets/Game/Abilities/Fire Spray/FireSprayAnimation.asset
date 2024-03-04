@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09be5e1c124a344039fa6761a5634556, type: 3}
-  m_Name: UseActionSlot2
+  m_Script: {fileID: 11500000, guid: 91820c531c63fe840baf0f6eb82d3051, type: 3}
+  m_Name: FireSprayAnimation
   m_EditorClassIdentifier: 
+  replacementClip: {fileID: 7400000, guid: 835417e3a1a42674fa2fe1b919c0470a, type: 2}
+  stateName: UseSlot

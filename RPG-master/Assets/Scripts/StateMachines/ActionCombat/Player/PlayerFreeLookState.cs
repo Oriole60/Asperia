@@ -25,6 +25,8 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.Shopper.OnIsShopping += OnInteracting;
         stateMachine.Inventory.OnPickupItem += OnInteracting;
         stateMachine.InputReader.OpenMenuEvent += OnInteracting;
+        stateMachine.InputReader.UseActionSlotSignal += OnUseSlot;
+
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
 
@@ -75,6 +77,8 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.Shopper.OnIsShopping -= OnInteracting;
         stateMachine.Inventory.OnPickupItem -= OnInteracting;
         stateMachine.InputReader.OpenMenuEvent -= OnInteracting;
+        stateMachine.InputReader.UseActionSlotSignal -= OnUseSlot;
+
     }
 
     private void OnTarget()
@@ -93,9 +97,14 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
     }
 
-    private void OnUseSlot()
+    private void OnUseSlot(int index, GameObject user)
     {
-        stateMachine.SwitchState(new PlayerUseSlotState(stateMachine));
+        if (stateMachine.IsInteracting)
+        {
+            return;
+        }
+        if(stateMachine.ActionStore.GetAction(index) == null) { return; }
+        stateMachine.SwitchState(new PlayerUseSlotState(stateMachine,index,user));
     }
 
     private Vector3 CalculateMovement()

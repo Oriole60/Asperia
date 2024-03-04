@@ -7,10 +7,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
     [SerializeField] EventSignal openMenuSignal;
-    [SerializeField] EventSignal UseActionSlot1Signal;
-    [SerializeField] EventSignal UseActionSlot2Signal;
-    [SerializeField] EventSignal UseActionSlot3Signal;
-    [SerializeField] EventSignal UseActionSlot4Signal;
+
 
     public bool IsAttacking { get; private set; }
     public bool IsBlocking { get; private set; }
@@ -22,6 +19,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
+    public event Action<int, GameObject> UseActionSlotSignal;
+
     public event Action<bool> OpenMenuEvent;
 
 
@@ -126,27 +125,27 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
 
-        UseActionSlot1Signal?.Occurred(this.gameObject);
+        UseActionSlotSignal?.Invoke(0,gameObject);
     }
 
     public void OnActionSlot2(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
 
-        UseActionSlot2Signal?.Occurred(this.gameObject);
+        UseActionSlotSignal?.Invoke(1, gameObject);
     }
 
     public void OnActionSlot3(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
 
-        UseActionSlot3Signal?.Occurred(this.gameObject);
+        UseActionSlotSignal?.Invoke(2, gameObject);
     }
 
     public void OnActionSlot4(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
 
-        UseActionSlot4Signal?.Occurred(this.gameObject);
+        UseActionSlotSignal?.Invoke(3, gameObject);
     }
 }

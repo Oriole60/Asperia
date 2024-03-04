@@ -104,6 +104,18 @@ namespace GameDevTV.Inventories
             return false;
         }
 
+        public void UseActionSlot(int index, GameObject user)
+        {
+            if (dockedItems.ContainsKey(index))
+            {
+                bool wasUsed = dockedItems[index].item.Use(user);
+                if (wasUsed && dockedItems[index].item.isConsumable())
+                {
+                    RemoveItems(index, 1);
+                }
+            }
+        }
+
         public void UseActionSlot1(GameObject user)
         {
             if (dockedItems.ContainsKey(0))

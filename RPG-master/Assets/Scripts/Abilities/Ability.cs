@@ -12,8 +12,11 @@ namespace RPG.Abilities
         [SerializeField] TargetingStrategy targetingStrategy;
         [SerializeField] FilterStrategy[] filterStrategies;
         [SerializeField] EffectStrategy[] effectStrategies;
+        [SerializeField] AnimationStrategy animationStrategy;
         [SerializeField] float cooldownTime = 0;
         [SerializeField] float manaCost = 0;
+
+        public string StateName { get; private set; }
 
         public override bool Use(GameObject user)
         {
@@ -61,11 +64,18 @@ namespace RPG.Abilities
             {
                 effect.StartEffect(data, EffectFinished);
             }
+
+            animationStrategy.SetUpAnimation(data, SetStateName);
         }
 
         private void EffectFinished()
         {
             
+        }
+
+        private void SetStateName()
+        {
+            this.StateName = animationStrategy.StateName;
         }
     }
 }
