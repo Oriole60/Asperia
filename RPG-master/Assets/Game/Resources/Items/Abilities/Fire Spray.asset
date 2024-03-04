@@ -15,11 +15,11 @@ MonoBehaviour:
   itemID: 970f4efc-6e23-4cdd-86c7-c9e0ba4c2ee2
   displayName: Fire Spray
   description: 
-  icon: {fileID: 21300000, guid: f1dd815974b2d4240a6bc912d6585497, type: 3}
+  icon: {fileID: 21300000, guid: a1ec2c0ddc0da634b85f0f465fec2d0d, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   price: 100
-  category: 0
+  category: 5
   consumable: 0
   targetingStrategy: {fileID: 11400000, guid: 665bee124aa6181479b5ff7bad9b2815, type: 2}
   filterStrategies: []
