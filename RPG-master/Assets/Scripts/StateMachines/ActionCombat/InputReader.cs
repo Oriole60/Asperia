@@ -118,7 +118,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnChangeTarget(InputAction.CallbackContext context)
     {
         ChangeTargetValue = context.ReadValue<float>();
-        Debug.Log(ChangeTargetValue);
     }
 
     public void OnActionSlot1(InputAction.CallbackContext context)

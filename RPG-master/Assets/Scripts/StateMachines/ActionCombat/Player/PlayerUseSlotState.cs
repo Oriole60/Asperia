@@ -24,13 +24,10 @@ public class PlayerUseSlotState : PlayerBaseState
         ActionItem actionItem = stateMachine.ActionStore.GetAction(indexSlotUse);
         if(actionItem is Ability ability)
         {
-            Debug.Log("Using Slot");
-            stateMachine.Animator.CrossFadeInFixedTime(ability.StateName, CrossFadeDuration);
+            stateMachine.Animator.CrossFadeInFixedTime(GameConstant.USESLOT_TAG_ANIMATIONSTATE, CrossFadeDuration);
+
         }
-
         stateMachine.ActionStore.UseActionSlot(indexSlotUse, user);
-
-
     }
 
     public override void Tick(float deltaTime)

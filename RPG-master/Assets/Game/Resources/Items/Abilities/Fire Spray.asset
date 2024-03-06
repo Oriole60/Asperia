@@ -14,18 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 970f4efc-6e23-4cdd-86c7-c9e0ba4c2ee2
   displayName: Fire Spray
-  description: 
+  description: Cast fireball from you left hand
   icon: {fileID: 21300000, guid: a1ec2c0ddc0da634b85f0f465fec2d0d, type: 3}
-  pickup: {fileID: 0}
+  pickup: {fileID: 743510599615345213, guid: 0715da6d594191c43a75bbdd035e8646, type: 3}
   stackable: 0
   price: 100
   category: 5
   consumable: 0
-  targetingStrategy: {fileID: 11400000, guid: 665bee124aa6181479b5ff7bad9b2815, type: 2}
+  targetingStrategy: {fileID: 11400000, guid: 150034343cb28984eb5285786e4eed97, type: 2}
   filterStrategies: []
   effectStrategies:
   - {fileID: 11400000, guid: 6d33885397fbf2a4abbf67396fff6907, type: 2}
-  - {fileID: 11400000, guid: 352d4fd1f4e96264b866d1a07343be8b, type: 2}
   animationStrategy: {fileID: 11400000, guid: d84333b80e4633a4b81508de4e718c2a, type: 2}
   cooldownTime: 0.6
   manaCost: 20

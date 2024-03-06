@@ -16,8 +16,6 @@ namespace RPG.Abilities
         [SerializeField] float cooldownTime = 0;
         [SerializeField] float manaCost = 0;
 
-        public string StateName { get; private set; }
-
         public override bool Use(GameObject user)
         {
             Mana mana = user.GetComponent<Mana>();
@@ -31,7 +29,7 @@ namespace RPG.Abilities
             {
                 return false;
             }
-
+            Debug.Log(user.name);
             AbilityData data = new AbilityData(user);
 
             ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();
@@ -75,7 +73,7 @@ namespace RPG.Abilities
 
         private void SetStateName()
         {
-            this.StateName = animationStrategy.StateName;
+
         }
     }
 }
