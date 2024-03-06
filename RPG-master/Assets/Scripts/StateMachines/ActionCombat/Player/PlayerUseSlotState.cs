@@ -33,7 +33,6 @@ public class PlayerUseSlotState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, GameConstant.USESLOT_TAG_ANIMATIONSTATE);
-        Debug.Log(normalizedTime);
         if(normalizedTime >= 1f)
         {
             ReturnToLocomotion();

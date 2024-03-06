@@ -29,7 +29,6 @@ namespace RPG.Abilities
             {
                 return false;
             }
-            Debug.Log(user.name);
             AbilityData data = new AbilityData(user);
 
             ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();

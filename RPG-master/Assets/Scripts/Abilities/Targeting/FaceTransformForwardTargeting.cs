@@ -16,8 +16,7 @@ namespace RPG.Abilities.Targeting
             Health targetPoint = fighter.GetTarget();
             if(targetPoint != null)
             {
-                data.SetTargetedPoint(targetPoint.transform.position);
-                data.SetTargets(new GameObject[] { targetPoint.gameObject });
+                data.SetTargetedPoint(targetPoint.transform.position - data.GetUser().transform.position);
             }
             else
             {

@@ -22,7 +22,14 @@ namespace RPG.Combat
 
         private void Start()
         {
-            transform.LookAt(GetAimLocation());
+            if(target != null)
+            {
+                transform.LookAt(GetAimLocation());
+            }
+            else
+            {
+                transform.forward = GetAimLocation();
+            }
         }
 
         void Update()
