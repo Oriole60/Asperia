@@ -9,18 +9,19 @@ namespace RPG.Combat
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]
     public class WeaponConfig : EquipableItem, IModifierProvider
     {
-        [SerializeField] AnimatorOverrideController animatorOverride = null;
+        //[SerializeField] AnimatorOverrideController animatorOverride = null;
         [SerializeField] Weapon equippedPrefab = null;
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] float percentageBonus = 0;
         [SerializeField] float weaponRange = 2f;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] Projectile projectile = null;
+        [SerializeField] AnimationClip[] overrideAttackAnimations;
         [SerializeField] Attack[] attacksData;
 
         const string weaponName = "Weapon";
 
-        public Weapon Spawn(Transform rightHand, Transform leftHand, Animator animator)
+        public Weapon Spawn(Transform rightHand, Transform leftHand, Animator animator, AnimatorOverrideController animatorOverrideController, AnimationClipOverrides clipOverrides)
         {
             DestroyOldWeapon(rightHand, leftHand);
 
@@ -33,15 +34,25 @@ namespace RPG.Combat
                 weapon.gameObject.name = weaponName;
             }
 
-            var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
-            if (animatorOverride != null)
+            //var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
+            //if (animatorOverride != null)
+            //{
+            //    animator.runtimeAnimatorController = animatorOverride;
+            //}
+            //else if (overrideController != null)
+            //{
+            //    animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
+            //}
+
+            animator.runtimeAnimatorController = animatorOverrideController;
+
+            animatorOverrideController.GetOverrides(clipOverrides);
+
+            for(int i = 0; i < overrideAttackAnimations.Length; i++)
             {
-                animator.runtimeAnimatorController = animatorOverride; 
+                clipOverrides[($"Attack{i}")] = overrideAttackAnimations[i];
             }
-            else if (overrideController != null)
-            {
-                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
-            }
+            animatorOverrideController.ApplyOverrides(clipOverrides);
 
             return weapon;
         }
@@ -115,3 +126,4 @@ namespace RPG.Combat
         }
     }
 }
+

@@ -23,7 +23,6 @@ MonoBehaviour:
   allowedEquipLocation: 5
   equipCondition:
     and: []
-  animatorOverride: {fileID: 0}
   equippedPrefab: {fileID: 442137872338528657, guid: 8786ea0ff0548a84f927488b94467170,
     type: 3}
   weaponDamage: 2
@@ -31,29 +30,34 @@ MonoBehaviour:
   weaponRange: 2
   isRightHanded: 1
   projectile: {fileID: 0}
+  overrideAttackAnimations:
+  - {fileID: 7400000, guid: 2b76bded9ce73bd4ca564551ec83f24d, type: 2}
+  - {fileID: 7400000, guid: c07e721dc03433f43a18699083a12e8c, type: 2}
+  - {fileID: 7400000, guid: 4a1e7df9306ae9146aa986daf09caeae, type: 2}
+  - {fileID: 7400000, guid: fb370c9287511064f8441b4120ec4652, type: 2}
   attacksData:
-  - <AnimationName>k__BackingField: Attack1
+  - <AnimationName>k__BackingField: Attack0
     <TransitionDuration>k__BackingField: 0.1
     <CombonNextStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.6
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 20
     <Knockback>k__BackingField: 5
-  - <AnimationName>k__BackingField: Attack2
+  - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
     <CombonNextStateIndex>k__BackingField: 2
     <ComboAttackTime>k__BackingField: 0.5
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 20
     <Knockback>k__BackingField: 5
-  - <AnimationName>k__BackingField: Attack3
+  - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.2
     <CombonNextStateIndex>k__BackingField: 3
     <ComboAttackTime>k__BackingField: 0.6
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 20
     <Knockback>k__BackingField: 5
-  - <AnimationName>k__BackingField: Attack4
+  - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.2
     <CombonNextStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0.6

@@ -27,6 +27,10 @@ namespace RPG.Combat
         float timeSinceLastAttack = Mathf.Infinity;
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
+        public Animator Animator => animator;
+        public AnimatorOverrideController AnimatorOverrideController { get; set; }
+        public AnimationClipOverrides ClipOverrides { get; set; }
+
 
         private void Awake() {
             currentWeaponConfig = defaultWeapon;
@@ -40,6 +44,8 @@ namespace RPG.Combat
 
         private Weapon SetupDefaultWeapon()
         {
+            AnimatorOverrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+            ClipOverrides = new AnimationClipOverrides(AnimatorOverrideController.overridesCount);
             return AttachWeapon(defaultWeapon);
         }
 
@@ -92,7 +98,7 @@ namespace RPG.Combat
 
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
-            Weapon spawningWeapon = weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            Weapon spawningWeapon = weapon.Spawn(rightHandTransform, leftHandTransform, animator,AnimatorOverrideController,ClipOverrides);
             weaponHandler.SetWeaponLogic(spawningWeapon.GetWeaponDamage(myCollider),weapon.HasProjectile(), LaunchProjectile);
             return spawningWeapon;
         }

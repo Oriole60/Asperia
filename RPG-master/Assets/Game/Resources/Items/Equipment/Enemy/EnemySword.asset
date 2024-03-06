@@ -29,7 +29,6 @@ MonoBehaviour:
         - Strength
         - 4
         negate: 0
-  animatorOverride: {fileID: 22100000, guid: 465ff91051fec40ce974853675711759, type: 2}
   equippedPrefab: {fileID: 442137872338528657, guid: c77f288c2f5ccac44bbf4e7d1eb1dee0,
     type: 3}
   weaponDamage: 10
@@ -37,8 +36,11 @@ MonoBehaviour:
   weaponRange: 2
   isRightHanded: 1
   projectile: {fileID: 0}
+  overrideAttackAnimations:
+  - {fileID: 7400000, guid: f82e07039dba5044998dc9498029df39, type: 2}
+  - {fileID: 7400000, guid: e0742f3870030fc479fd5a2586790fca, type: 2}
   attacksData:
-  - <AnimationName>k__BackingField: Attack
+  - <AnimationName>k__BackingField: Attack0
     <TransitionDuration>k__BackingField: 0.1
     <CombonNextStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.7
