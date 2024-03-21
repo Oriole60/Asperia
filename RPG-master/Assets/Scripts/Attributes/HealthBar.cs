@@ -10,6 +10,16 @@ namespace RPG.Attributes
         [SerializeField] RectTransform foreground = null;
         [SerializeField] Canvas rootCanvas = null;
 
+        private void OnEnable()
+        {
+            healthComponent.OnDie += OnDie;
+
+        }
+
+        private void OnDisable()
+        {
+            healthComponent.OnDie -= OnDie;
+        }
 
         void Update()
         {
@@ -22,6 +32,12 @@ namespace RPG.Attributes
 
             rootCanvas.enabled = true;
             foreground.localScale = new Vector3(healthComponent.GetFraction(), 1, 1);
+        }
+
+        private void OnDie()
+        {
+            this.enabled = false;
+            gameObject.SetActive(false);
         }
     }
 }

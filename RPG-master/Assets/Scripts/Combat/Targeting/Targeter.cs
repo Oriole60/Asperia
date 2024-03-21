@@ -79,6 +79,11 @@ public class Targeter : MonoBehaviour
         return true;
     }
 
+    private void AutoChangeTarget()
+    {
+        ChangeTarget(1);
+    }
+
     //should set to 1 and -1
     public void ChangeTarget(int nextIndex)
     {
@@ -118,5 +123,6 @@ public class Targeter : MonoBehaviour
 
         target.OnDestroyed -= RemoveTarget;
         targets.Remove(target);
+        AutoChangeTarget();
     }
 }
